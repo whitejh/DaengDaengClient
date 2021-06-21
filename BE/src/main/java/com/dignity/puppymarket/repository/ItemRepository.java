@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
     List<Item> findAll();
-    
+
     Optional<Item> findById(Long id);
 }
