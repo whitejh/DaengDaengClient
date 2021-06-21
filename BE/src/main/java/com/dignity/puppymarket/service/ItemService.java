@@ -27,4 +27,10 @@ public class ItemService {
                 .map(ItemHomeGetResponseDto::of)
                 .collect(Collectors.toList());
     }
+
+    public ItemGetResponseDto getItem(Long id) {
+        return itemRepository.findById(id)
+                .map(ItemGetResponseDto::of)
+                .orElseThrow(() -> ItemNotFoundException(id));
+    }
 }
