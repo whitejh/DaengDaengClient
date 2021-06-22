@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,4 +55,20 @@ public class User {
     //User(buyer) 1: N Item
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "buyer")
     List<Item> buyerItemList = new ArrayList<>();
+
+    //User 1 : 1 Blame
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+    private Blame blame;
+
+    //User 1 : 1 Wish
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+    private Wish wish;
+
+    //User 1 : N chatRoom
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<ChatRoom> chatRoomList = new ArrayList<>();
+
+    //User(sender) 1 : N ChatMessage
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sender")
+    private List<ChatMessage> chatMessageList = new ArrayList<>();
 }

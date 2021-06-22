@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -81,9 +82,26 @@ public class Item {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
     List<ItemImage> itemImageList = new ArrayList<>();
 
+    //Item 1 : 1 Blame
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "item")
+    private Blame blame;
+
+    //Item 1 : 1 Wish
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "item")
+    private Wish wish;
+    
+    //Item 1 : 1 Review
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "item")
+    private Review review;
+
+    //Item 1 : 1 chatRoom
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "item")
+    private ChatRoom chatRoom;
+
     public Item(Long id, String name, int price, String description, int hit, ItemStatus itemStatus,
                 NegoStatus negoStatus, BigCategory bigCategory, MidCategory midCategory, LocalDateTime createdAt,
-                LocalDateTime updatedAt, Si si, Gu gu, User seller, User buyer, List<ItemImage> itemImageList) {
+                LocalDateTime updatedAt, Si si, Gu gu, User seller, User buyer, List<ItemImage> itemImageList,
+                Blame blame, Wish wish, Review review, ChatRoom chatRoom) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -100,5 +118,9 @@ public class Item {
         this.seller = seller;
         this.buyer = buyer;
         this.itemImageList = itemImageList;
+        this.blame = blame;
+        this.wish = wish;
+        this.review = review;
+        this.chatRoom = chatRoom;
     }
 }
