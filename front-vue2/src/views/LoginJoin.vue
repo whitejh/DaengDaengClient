@@ -1,6 +1,6 @@
 <template>
 	<div id="loginjoin">
-		<!-- 회원가입 / 로그인  -->
+		<!-- 회원가입 / 로그인 페이지  -->
 		<div class="loginjoin-title">
 			회원가입/로그인
 		</div>
