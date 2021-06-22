@@ -1,19 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Trade from '../views/Trade.vue';
-import Feed from '../views/Feed.vue';
-import Notice from '../views/Notice.vue';
-// import AdList from '../views/AdList.vue';
-import Chat from '../views/Chat.vue';
-import LoginJoin from '../views/LoginJoin.vue';
-import MyPage from '../views/MyPage.vue';
-import NoticeAdd from '../views/NoticeAdd.vue';
-import ProductDetail from '../views/ProductDetail.vue';
-import Report from '../views/Report.vue';
-import AdminNotice from '../views/AdminNotice.vue';
-import AdminReport from '../views/AdminReport.vue';
-import AdList from '../views/AdList.vue';
 
 Vue.use(VueRouter);
 
@@ -22,67 +8,77 @@ const routes = [
 		path: '/',
 		// redirect: '/',
 		name: 'Home',
-		component: Home,
+		component: () => import('@/views/Home.vue'),
 	},
 	{
 		path: '/trade',
 		name: 'Trade',
-		component: Trade,
+		component: () => import('@/views/Trade.vue'),
+
+		beforeEnter: (to, from, next) => {
+			console.log(to, from, next);
+			if (this.$store.state.auth.username !== '') next();
+		},
 	},
 	{
 		path: '/feed',
 		name: 'Feed',
-		component: Feed,
+		component: () => import('@/views/Feed.vue'),
 	},
 	{
 		path: '/notice',
 		name: 'Notice',
-		component: Notice,
+		component: () => import('@/views/Notice.vue'),
 	},
 	{
 		path: '/chat',
 		name: 'Chat',
-		component: Chat,
+		component: () => import('@/views/Chat.vue'),
 	},
 	{
 		path: '/loginjoin',
 		name: 'LoginJoin',
-		component: LoginJoin,
+		component: () => import('@/views/LoginJoin.vue'),
 	},
 	{
 		path: '/mypage',
 		name: 'MyPage',
-		component: MyPage,
+		component: () => import('@/views/MyPage.vue'),
 	},
 	{
 		path: '/noticeadd',
 		name: 'NoticeAdd',
-		component: NoticeAdd,
+		component: () => import('@/views/NoticeAdd.vue'),
 	},
 	{
 		path: '/productdetail',
 		name: 'ProductDetail',
-		component: ProductDetail,
+		component: () => import('@/views/ProductDetail.vue'),
 	},
 	{
 		path: '/report',
 		name: 'Report',
-		component: Report,
+		component: () => import('@/views/Report.vue'),
 	},
 	{
 		path: '/adminnotice',
 		name: 'AdminNotice',
-		component: AdminNotice,
+		component: () => import('@/views/AdminNotice.vue'),
 	},
+
 	{
 		path: '/adminreport',
 		name: 'AdminReport',
-		component: AdminReport,
+		component: () => import('@/views/AdminReport.vue'),
 	},
 	{
 		path: '/adlist',
 		name: 'AdList',
-		component: AdList,
+		component: () => import('@/views/AdList.vue'),
+	},
+	{
+		path: '*',
+		component: () => import('@/views/NotFoundPage.vue'),
 	},
 ];
 

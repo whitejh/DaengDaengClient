@@ -93,11 +93,10 @@
 					<div class="inner">
 						<div class="tools">
 							<div class="account">
-								<router-link to="/mypage">
-									<div class="user__icon">
-										<i class="far fa-user"></i>
-									</div>
-								</router-link>
+								<div class="user__icon">
+									<i class="far fa-user"></i>
+								</div>
+
 								<ul class="toolbar-dropdown">
 									<li class="sub-menu-user">
 										<div class="user-ava">
@@ -109,7 +108,7 @@
 										<div class="user-info">
 											<router-link to="/adminnotice">
 												<h6 class="user-name">
-													Admin
+													{{ $store.state.auth.username }}
 												</h6>
 											</router-link>
 											<span class="text-xs text-muted">환영합니다!</span>
@@ -134,7 +133,9 @@
 									</li>
 									<li class="sub-menu-separator"></li>
 									<li>
-										<a href="#"> <i class="fas fa-sign-out-alt"></i>로그아웃</a>
+										<a href="javascript:;" @click="logoutUser">
+											<i class="fas fa-sign-out-alt"></i>로그아웃</a
+										>
 									</li>
 								</ul>
 							</div>
@@ -281,6 +282,11 @@ export default {
 		},
 		checkSidebarVisibility() {
 			this.showSidebar = true;
+		},
+		// 로그아웃 메소드
+		logoutUser() {
+			this.$store.commit('clearUsername');
+			this.$router.push('loginjoin');
 		},
 	},
 };

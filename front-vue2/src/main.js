@@ -13,7 +13,7 @@ import sidemenu from '../public/css/sidemenu.css';
 
 //css 설정
 import '../public/css/mycss.css';
-//import '../public/css/vendor.min.css';
+// import '../public/css/vendor.min.css';
 import '../public/css/styles.min.css'; // 폰트 적용됨
 
 // Vue.use(sidemenu)

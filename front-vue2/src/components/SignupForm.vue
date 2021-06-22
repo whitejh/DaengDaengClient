@@ -6,11 +6,17 @@
 			계정이 없나요?
 		</h3>
 		<p>1분이면 가입하고 댕댕마켓을 즐길 수 있어요!</p>
-		<form class="row" method="post">
+		<form class="row" @submit.prevent="submitForm">
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="reg-email">이메일</label>
-					<input class="form-control" type="email" id="reg-email" required />
+					<input
+						class="form-control"
+						type="email"
+						id="reg-email"
+						required
+						v-model="username"
+					/>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -22,7 +28,13 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="reg-pass">비밀번호</label>
-					<input class="form-control" type="password" id="reg-pass" required />
+					<input
+						class="form-control"
+						type="password"
+						id="reg-pass"
+						required
+						v-model="password"
+					/>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -39,7 +51,13 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="reg-fn">닉네임</label>
-					<input class="form-control" type="text" id="reg-fn" required />
+					<input
+						class="form-control"
+						type="text"
+						id="reg-fn"
+						required
+						v-model="nickname"
+					/>
 				</div>
 			</div>
 			<div class="col-sm-6">
