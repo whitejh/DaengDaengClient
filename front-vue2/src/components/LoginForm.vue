@@ -1,6 +1,6 @@
 <template>
 	<div class="col-md-6">
-		<form class="login-box" method="post">
+		<form class="login-box" @submit.prevent="submitForm">
 			<div class="row margin-bottom-1x">
 				<div class="col-xl-4 col-md-6 col-sm-4">
 					<a class="btn btn-sm btn-block twitter-btn" href="#"
@@ -72,6 +72,7 @@
 				</button>
 			</div>
 		</form>
+		<p class="log">{{ logMessage }}</p>
 	</div>
 </template>
 
@@ -101,9 +102,9 @@ export default {
 					password: this.password,
 				};
 				const { data } = await loginUser(userData);
-				console.log(data.token);
+				console.log(data.user.username);
 				this.$store.commit('setToken', data.token);
-				this.$store.commit('setUsername', data.username);
+				this.$store.commit('setUsername', data.user.username);
 				this.$router.push('/');
 			} catch (error) {
 				console.log(error);

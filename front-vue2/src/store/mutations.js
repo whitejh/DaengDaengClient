@@ -39,12 +39,12 @@ export default {
 
 	// 로그인(auth) 관련 mutation 입니다.
 	setUsername(state, username) {
-		state.username = username;
+		state.auth.username = username;
 	},
 	clearUsername(state) {
-		state.username = '';
+		state.auth.username = '';
 	},
 	setToken(state, token) {
-		state.token = token;
+		state.auth.token = token;
 	},
 };

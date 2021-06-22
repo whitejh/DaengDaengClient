@@ -70,59 +70,78 @@
 				</ul>
 			</nav>
 
-			<!-- 네비바의 내정보 -->
-			<div class="toolbar">
-				<div class="inner">
-					<div class="tools">
-						<div class="account">
-							<router-link to="/mypage">
-								<div class="user__icon">
-									<i class="far fa-user"></i>
-								</div>
-							</router-link>
-							<ul class="toolbar-dropdown">
-								<li class="sub-menu-user">
-									<div class="user-ava">
-										<img
-											src="@/assets/img/header_logo.png"
-											alt="Daniel Adams"
-										/>
+			<!-- 비로그인 시, 로그인 버튼  -->
+			<template v-if="!isUserLogin">
+				<div class="toolbar">
+					<div class="inner">
+						<div class="tools">
+							<div class="account">
+								<router-link to="/loginjoin">
+									<div class="user__icon">
+										<i class="fas fa-unlock-alt"></i>
 									</div>
-									<div class="user-info">
-										<router-link to="/adminnotice">
-											<h6 class="user-name">
-												Admin
-											</h6>
-										</router-link>
-										<span class="text-xs text-muted">환영합니다!</span>
-									</div>
-								</li>
-								<li>
-									<router-link to="/mypage">
-										<i class="fas fa-bone"></i>
-										마이댕댕
-									</router-link>
-								</li>
-								<li>
-									<a href="#" @click="showPopup"
-										><i class="far fa-comment-dots"></i> 댕댕톡</a
-									>
-								</li>
-								<li>
-									<router-link to="/mypage">
-										<i class="fas fa-shopping-basket"></i>
-										wishlist
-									</router-link>
-								</li>
-								<li class="sub-menu-separator"></li>
-								<li>
-									<a href="#"> <i class="fas fa-sign-out-alt"></i>로그아웃</a>
-								</li>
-							</ul>
+								</router-link>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</template>
+
+			<!-- 로그인 시, 내 정보 -->
+			<template v-else>
+				<div class="toolbar">
+					<div class="inner">
+						<div class="tools">
+							<div class="account">
+								<router-link to="/mypage">
+									<div class="user__icon">
+										<i class="far fa-user"></i>
+									</div>
+								</router-link>
+								<ul class="toolbar-dropdown">
+									<li class="sub-menu-user">
+										<div class="user-ava">
+											<img
+												src="@/assets/img/header_logo.png"
+												alt="Daniel Adams"
+											/>
+										</div>
+										<div class="user-info">
+											<router-link to="/adminnotice">
+												<h6 class="user-name">
+													Admin
+												</h6>
+											</router-link>
+											<span class="text-xs text-muted">환영합니다!</span>
+										</div>
+									</li>
+									<li>
+										<router-link to="/mypage">
+											<i class="fas fa-bone"></i>
+											마이댕댕
+										</router-link>
+									</li>
+									<li>
+										<a href="#" @click="showPopup"
+											><i class="far fa-comment-dots"></i> 댕댕톡</a
+										>
+									</li>
+									<li>
+										<router-link to="/mypage">
+											<i class="fas fa-shopping-basket"></i>
+											wishlist
+										</router-link>
+									</li>
+									<li class="sub-menu-separator"></li>
+									<li>
+										<a href="#"> <i class="fas fa-sign-out-alt"></i>로그아웃</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
 		</header>
 		<div>
 			<span class="sidemenu-slide">
@@ -210,9 +229,20 @@
 <script>
 // import Menus from './menus.vue';
 import { mapState } from 'vuex';
-import _ from 'lodash';
+import {} from 'lodash';
 export default {
-	computed: _.extend(mapState(['menus', 'colors'])),
+	// computed: {
+	// 	_.extend(mapState(['menus', 'colors'])),
+	// },
+	computed: {
+		...mapState(['menus', 'colors', 'auth']),
+
+		// 로그인 체크
+		isUserLogin() {
+			return this.$store.getters.isLogin;
+		},
+	},
+
 	data: () => ({
 		drawer: null,
 		color: 'success',
