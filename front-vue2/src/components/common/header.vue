@@ -159,6 +159,12 @@
 						persistent
 						mobile-break-point="960"
 						width="280"
+						sm="3"
+						xl="3"
+						lg="3"
+						xs="3"
+						md="3"
+						cols="12"
 					>
 						<div>
 							<v-layout class="fill-height" tag="v-list" column>
