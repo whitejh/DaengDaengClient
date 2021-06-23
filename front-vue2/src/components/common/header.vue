@@ -3,6 +3,7 @@
 		<!-- 네비바 -->
 		<!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
 		<header class="navbar navbar-sticky">
+			<!-- <Sidemenu></Sidemenu> -->
 			<!-- 검색창 -->
 			<!-- sidemenu -->
 			<form class="site-search" method="get">
@@ -69,59 +70,79 @@
 				</ul>
 			</nav>
 
-			<!-- 네비바의 내정보 -->
-			<div class="toolbar">
-				<div class="inner">
-					<div class="tools">
-						<div class="account">
-							<router-link to="/mypage">
-								<div class="user__icon">
-									<i class="far fa-user"></i>
-								</div>
-							</router-link>
-							<ul class="toolbar-dropdown">
-								<li class="sub-menu-user">
-									<div class="user-ava">
-										<img
-											src="@/assets/img/header_logo.png"
-											alt="Daniel Adams"
-										/>
+			<!-- 비로그인 시, 로그인 버튼  -->
+			<template v-if="!isUserLogin">
+				<div class="toolbar">
+					<div class="inner">
+						<div class="tools">
+							<div class="account">
+								<router-link to="/loginjoin">
+									<div class="user__icon">
+										<i class="fas fa-unlock-alt"></i>
 									</div>
-									<div class="user-info">
-										<router-link to="/adminnotice">
-											<h6 class="user-name">
-												Admin
-											</h6>
-										</router-link>
-										<span class="text-xs text-muted">환영합니다!</span>
-									</div>
-								</li>
-								<li>
-									<router-link to="/mypage">
-										<i class="fas fa-bone"></i>
-										마이댕댕
-									</router-link>
-								</li>
-								<li>
-									<a href="#" @click="showPopup"
-										><i class="far fa-comment-dots"></i> 댕댕톡</a
-									>
-								</li>
-								<li>
-									<router-link to="/mypage">
-										<i class="fas fa-shopping-basket"></i>
-										wishlist
-									</router-link>
-								</li>
-								<li class="sub-menu-separator"></li>
-								<li>
-									<a href="#"> <i class="fas fa-sign-out-alt"></i>로그아웃</a>
-								</li>
-							</ul>
+								</router-link>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</template>
+
+			<!-- 로그인 시, 내 정보 -->
+			<template v-else>
+				<div class="toolbar">
+					<div class="inner">
+						<div class="tools">
+							<div class="account">
+								<div class="user__icon">
+									<i class="far fa-user"></i>
+								</div>
+
+								<ul class="toolbar-dropdown">
+									<li class="sub-menu-user">
+										<div class="user-ava">
+											<img
+												src="@/assets/img/header_logo.png"
+												alt="Daniel Adams"
+											/>
+										</div>
+										<div class="user-info">
+											<router-link to="/adminnotice">
+												<h6 class="user-name">
+													{{ $store.state.auth.username }}
+												</h6>
+											</router-link>
+											<span class="text-xs text-muted">환영합니다!</span>
+										</div>
+									</li>
+									<li>
+										<router-link to="/mypage">
+											<i class="fas fa-bone"></i>
+											마이댕댕
+										</router-link>
+									</li>
+									<li>
+										<a href="#" @click="showPopup"
+											><i class="far fa-comment-dots"></i> 댕댕톡</a
+										>
+									</li>
+									<li>
+										<router-link to="/mypage">
+											<i class="fas fa-shopping-basket"></i>
+											wishlist
+										</router-link>
+									</li>
+									<li class="sub-menu-separator"></li>
+									<li>
+										<a href="javascript:;" @click="logoutUser">
+											<i class="fas fa-sign-out-alt"></i>로그아웃</a
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
 		</header>
 		<div>
 			<span class="sidemenu-slide">
@@ -137,13 +158,13 @@
 						floating
 						persistent
 						mobile-break-point="960"
-						width="280"	
+						width="280"
 						sm="3"
-                        xl="3"
-                        lg="3"
-                        xs="3"
-                        md="3"
-                        cols="12"					
+						xl="3"
+						lg="3"
+						xs="3"
+						md="3"
+						cols="12"
 					>
 						<div>
 							<v-layout class="fill-height" tag="v-list" column>
@@ -215,9 +236,20 @@
 <script>
 // import Menus from './menus.vue';
 import { mapState } from 'vuex';
-import _ from 'lodash';
+import {} from 'lodash';
 export default {
-	computed: _.extend(mapState(['menus', 'colors'])),
+	// computed: {
+	// 	_.extend(mapState(['menus', 'colors'])),
+	// },
+	computed: {
+		...mapState(['menus', 'colors', 'auth']),
+
+		// 로그인 체크
+		isUserLogin() {
+			return this.$store.getters.isLogin;
+		},
+	},
+
 	data: () => ({
 		drawer: null,
 		color: 'success',
@@ -257,10 +289,15 @@ export default {
 		checkSidebarVisibility() {
 			this.showSidebar = true;
 		},
+		// 로그아웃 메소드
+		logoutUser() {
+			this.$store.commit('clearUsername');
+			this.$router.push('loginjoin');
+		},
 	},
 };
 </script>
-<style>
+<style scoped>
 .mr-2 {
 	padding-right: 10px;
 }
@@ -270,14 +307,11 @@ export default {
 	padding-right: 20px;
 	/* padding-top: 100px; */
 }
-/* .v-navigation-drawer__content{
-	z-index:20;
-} */
-.fill-height{
-	z-index:20;
+header {
+	z-index: 2;
 }
-.nav-container{
-	z-index:10;
+.v-list-group {
+	z-index: 1;
 }
 .menubar {
 	padding-left: 300px;
