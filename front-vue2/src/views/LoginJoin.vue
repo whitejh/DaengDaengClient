@@ -144,11 +144,7 @@
 							</button>
 						</div>
 					</form>
-<<<<<<< HEAD
-				</div>
-=======
 				</div> -->
->>>>>>> upstream/develop
 			</div>
 		</div>
 	</div>
