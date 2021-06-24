@@ -4690,7 +4690,7 @@ a.list-group-item {
   }
 }
 
-.modal {
+/* .modal {
   z-index: 9200;
 }
 
@@ -4718,13 +4718,13 @@ a.list-group-item {
 
 .modal-open.hasScrollbar .navbar-stuck {
   width: calc(100% - 15px);
-}
+} 
 
 .modal-backdrop {
   z-index: 9100;
 }
 
-.example-modal .modal {
+.afterModal .modal {
   display: block;
   position: relative;
   top: auto;
@@ -4732,7 +4732,7 @@ a.list-group-item {
   bottom: auto;
   left: auto;
   z-index: 1;
-}
+} */
 
 .progress {
   height: auto;

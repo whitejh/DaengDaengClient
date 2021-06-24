@@ -1,9 +1,9 @@
 <template>
-<div>
-      <Header v-if="chatcheck"/>
-      <router-view/>
-      <Footer v-if="chatcheck"/>
-</div>
+	<div>
+		<Header v-if="chatcheck" />
+		<router-view />
+		<Footer v-if="chatcheck" />
+	</div>
 </template>
 
 <script>
