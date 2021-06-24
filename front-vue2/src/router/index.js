@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '../store';
 
 Vue.use(VueRouter);
 
@@ -44,6 +45,7 @@ const routes = [
 		path: '/mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
+		meta: { auth: true },
 	},
 	{
 		path: '/noticeadd',
@@ -86,6 +88,14 @@ export const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
 	routes,
+});
+
+router.beforeEach((to, from, next) => {
+	if (to.meta.auth && !store.getters.isLogin) {
+		next('/login');
+		return;
+	}
+	next();
 });
 
 export default router;
