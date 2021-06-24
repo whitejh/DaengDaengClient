@@ -40,7 +40,7 @@ const routes = [
 		component: () => import('@/views/LoginJoin.vue'),
 	},
 	{
-		path: '/mypage',
+		path: '/:mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
 	},
