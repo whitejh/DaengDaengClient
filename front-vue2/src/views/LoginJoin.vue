@@ -1,12 +1,15 @@
 <template>
 	<div id="loginjoin">
-		<!-- 로그인 폼 -->
+		<!-- 회원가입 / 로그인 페이지  -->
 		<div class="loginjoin-title">
 			회원가입/로그인
 		</div>
 		<div class="container padding-bottom-3x mb-2">
 			<div class="row">
-				<div class="col-md-6">
+				<!-- 로그인 폼 -->
+				<LoginForm></LoginForm>
+				<!-- <div class="col-md-6">
+
 					<form class="login-box" method="post">
 						<div class="row margin-bottom-1x">
 							<div class="col-xl-4 col-md-6 col-sm-4">
@@ -63,10 +66,11 @@
 							</button>
 						</div>
 					</form>
-				</div>
+				</div> -->
 
 				<!-- 회원가입 폼-->
-				<div class="col-md-6">
+				<SignupForm></SignupForm>
+				<!-- <div class="col-md-6">
 					<div class="padding-top-3x hidden-md-up"></div>
 					<h3 class="margin-bottom-1x">
 						계정이 없나요?
@@ -140,11 +144,26 @@
 							</button>
 						</div>
 					</form>
+<<<<<<< HEAD
 				</div>
+=======
+				</div> -->
+>>>>>>> upstream/develop
 			</div>
 		</div>
 	</div>
 </template>
+<script>
+import LoginForm from '../components/LoginForm.vue';
+import SignupForm from '../components/SignupForm.vue';
+
+export default {
+	components: {
+		LoginForm,
+		SignupForm,
+	},
+};
+</script>
 
 <style scoped>
 .offcanvas-wrapper {

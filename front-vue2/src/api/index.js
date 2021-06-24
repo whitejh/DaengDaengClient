@@ -1,10 +1,30 @@
-// axios의 api 함수 구조화
 import axios from 'axios';
+
 import { setInterceptors } from './common/interceptor';
+// import { setInterceptors } from './common/interceptor';
+
+// function createInstance() {
+// 	const instance = axios.create({
+// 		baseURL: process.env.VUE_APP_API_URL,
+// 	});
+// 	return setInterceptors(instance);
+// }
+// const instance = createInstance();
+
+function loginUser(userData) {
+	const url = 'http://localhost:3000/login';
+	return axios.post(url, userData);
+}
+function registerUser(userData) {
+	const url = 'http://localhost:3000/signup';
+
+	return axios.post(url, userData);
+}
+export { loginUser, registerUser };
+// axios의 api 함수 구조화
 
 function createInstanceWithAuth(url) {
 	const instance = axios.create({
-		// api의 호출 url 값
 		baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
 	});
 	return setInterceptors(instance);

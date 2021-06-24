@@ -632,3 +632,14 @@ chat-sector{
   margin:20px 20px 8px;
   padding:0 12px 48px;
 }
+
+/* header 설정 */
+.mr-2 {
+	padding-right: 10px;
+}
+.sidemenu-slide {
+	/* padding: 20px 20px 20px 20px; */
+	padding-left: 20px;
+	padding-right: 20px;
+	/* padding-top: 100px; */
+}

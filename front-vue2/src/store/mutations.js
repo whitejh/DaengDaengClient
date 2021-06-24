@@ -36,4 +36,15 @@ export default {
 		state.menus = [];
 		state.menus = menus;
 	},
+
+	// 로그인(auth) 관련 mutation 입니다.
+	setUsername(state, username) {
+		state.auth.username = username;
+	},
+	clearUsername(state) {
+		state.auth.username = '';
+	},
+	setToken(state, token) {
+		state.auth.token = token;
+	},
 };
