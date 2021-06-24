@@ -2,8 +2,8 @@
   <div id="featured-item">
       <Sort></Sort>
       <Goods></Goods>
-      <span>{{$route.params.big}}</span>
-      <span>{{$route.params.mid}}</span>
+      <!-- <span>{{$route.params.big}}</span>
+      <span>{{$route.params.mid}}</span> -->
 
 
   </div>
