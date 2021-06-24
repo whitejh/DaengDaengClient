@@ -2,8 +2,10 @@ import Vue from 'vue';
 import App from './App.vue';
 import { router } from './router/index.js';
 import store from './store/index.js';
+import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Vue.use(BootstrapVue);
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+Vue.use(BootstrapVue);
 
 // sidemenu를 위한 설정
 import VueSidebarMenu from 'vue-sidebar-menu';
@@ -18,9 +20,6 @@ import axios from 'axios'; // import axios
 import '../public/css/mycss.css';
 import '../public/css/styles.min.css'; // 폰트 적용됨
 
-// Vue.use(sidemenu)
-// Vue.use(Slider)
-// Vue.use(VueSidebarMenu)
 Vue.config.productionTip = false;
 
 Vue.prototype.$axios = axios; // prototype에 axios 추가
@@ -35,5 +34,4 @@ new Vue({
 	vuetify,
 	sidemenu,
 	VueSidebarMenu,
-	// BootstrapVue
 }).$mount('#app');
