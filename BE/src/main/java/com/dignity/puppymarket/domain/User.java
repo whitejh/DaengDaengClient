@@ -73,4 +73,8 @@ public class User {
     //User(sender) 1 : N ChatMessage
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sender")
     private List<ChatMessage> chatMessageList = new ArrayList<>();
+
+    public boolean authenticate(String password, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(password, this.password);
+    }
 }
