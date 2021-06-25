@@ -144,103 +144,16 @@
 				</div>
 			</template>
 		</header>
-		<div>
-			<span class="sidemenu-slide">
-				<div class="nav-container" tabindex="0" @click="checkSidebarVisibility">
-					<div class="nav-toggle"></div>
-					<v-navigation-drawer
-						v-if="showSidebar"
-						id="app-drawer"
-						v-model="drawer"
-						app
-						dark
-						:color="colors.menu_background_color"
-						floating
-						persistent
-						mobile-break-point="960"
-						width="280"
-						sm="3"
-						xl="3"
-						lg="3"
-						xs="3"
-						md="3"
-						cols="12"
-					>
-						<div>
-							<v-layout class="fill-height" tag="v-list" column>
-								<v-list>
-									<v-list-item v-on:click="showSidebar = false">
-										<v-toolbar-title
-											><v-icon class="mr-2">fas fa-bars</v-icon
-											>댕댕마켓</v-toolbar-title
-										>
-									</v-list-item>
-									<hr class="mt-2 mb-2" />
-									<v-list-item-group active-class="white--text">
-										<template v-for="menu in menus">
-											<template v-if="menu.childrens">
-												<v-list-group :prepend-icon="menu.icon" :key="menu.id">
-													<template v-slot:activator>
-														<v-list-item-title>{{
-															menu.title
-														}}</v-list-item-title>
-													</template>
-													<template v-for="children in menu.childrens">
-														<v-list-item
-															@click="movePage(children.target)"
-															:key="children.id"
-															class="ml-2"
-															:active-class="
-																`${colors.menu_selected_color} accent-4 white--text`
-															"
-														>
-															<v-list-item-icon
-																:active-class="
-																	`${colors.menu_selected_color} accent-4`
-																"
-															>
-																<v-icon>{{ children.icon }}</v-icon>
-															</v-list-item-icon>
-															<v-list-item-title>
-																{{ children.title }}
-															</v-list-item-title>
-														</v-list-item>
-													</template>
-												</v-list-group>
-											</template>
-											<template v-else>
-												<v-list-item
-													@click="movePage(menu.target)"
-													:key="menu.id"
-												>
-													<v-list-item-icon>
-														<v-icon>{{ menu.icon }}</v-icon>
-													</v-list-item-icon>
-													<v-list-item-title>{{
-														menu.title
-													}}</v-list-item-title>
-												</v-list-item>
-											</template>
-										</template>
-									</v-list-item-group>
-								</v-list>
-							</v-layout>
-						</div>
-					</v-navigation-drawer>
-				</div>
-			</span>
-		</div>
+		<SideMenu></SideMenu>
 	</div>
 </template>
 
 <script>
-// import Menus from './menus.vue';
+import SideMenu from './sidemenu.vue';
 import { mapState } from 'vuex';
 import {} from 'lodash';
 export default {
-	// computed: {
-	// 	_.extend(mapState(['menus', 'colors'])),
-	// },
+// import Menus from './menus.vue';
 	computed: {
 		...mapState(['menus', 'colors', 'auth']),
 
@@ -275,20 +188,9 @@ export default {
 			const host = 'http://' + window.location.host + '/chat';
 			window.open(host, 'a', 'width=800, height=880, left=100, top=50');
 		},
-		movePage(target) {
-			// this.showSidebar=false;
-			this.$router.push({ name: target });
-		},
-		onResponsiveInverted() {
-			if (window.innerWidth < 1000) {
-				this.responsive = true;
-			} else {
-				this.responsive = false;
-			}
-		},
-		checkSidebarVisibility() {
-			this.showSidebar = true;
-		},
+	},
+	components: {
+		SideMenu,
 		// 로그아웃 메소드
 		logoutUser() {
 			this.$store.commit('clearUsername');
@@ -315,6 +217,7 @@ header {
 }
 .menubar {
 	padding-left: 300px;
+	padding-right:100px;
 }
 .searchmenu {
 	padding-left: 200px;
@@ -332,3 +235,4 @@ header {
 	font-size: 30px;
 }
 </style>
+
