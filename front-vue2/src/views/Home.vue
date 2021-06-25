@@ -100,10 +100,10 @@
 								물품
 							</h2>
 						</div>
-
-						<Goods></Goods>
 						
-					</div>			
+						<Sort></Sort>
+						<Goods></Goods>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -111,11 +111,13 @@
 </template>
 
 <script>
-import Goods from '../components/common/goods.vue'
+import Goods from '../components/common/goods.vue';
+import Sort from '../components/common/sort.vue'
 export default {
 	name: '',
 	components: {
-		Goods
+		Goods,
+		Sort,
 	},
 	data() {
 		return {};
@@ -146,7 +148,6 @@ export default {
 .card-button > button {
 	margin-left: 10px;
 }
-
 .comment {
 	width: 90%;
 }

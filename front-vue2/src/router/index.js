@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -41,7 +40,7 @@ const routes = [
 		component: () => import('@/views/LoginJoin.vue'),
 	},
 	{
-		path: '/mypage',
+		path: '/:mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
 	},
@@ -74,11 +73,12 @@ const routes = [
 	{
 		path: '/adlist',
 		name: 'AdList',
-		component: () => import('@/views/AdList.vue'),
+    component: () => import('@/views/AdList.vue'),
 	},
 	{
-		path: '*',
-		component: () => import('@/views/NotFoundPage.vue'),
+		path: '/category/:big?/:mid?',
+		name: 'Category',
+    component: () => import('@/components/FeaturedItem.vue'),
 	},
 ];
 
