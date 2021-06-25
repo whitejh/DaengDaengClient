@@ -4,6 +4,7 @@ import com.dignity.puppymarket.dto.AuthenticationCreateDto;
 import com.dignity.puppymarket.dto.SessionResponseDto;
 import com.dignity.puppymarket.dto.User.UserLoginResponseDto;
 import com.dignity.puppymarket.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
