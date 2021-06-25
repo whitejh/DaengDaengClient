@@ -1,5 +1,8 @@
 package com.dignity.puppymarket.controller;
 
+import com.dignity.puppymarket.dto.AuthenticationCreateDto;
+import com.dignity.puppymarket.dto.SessionResponseDto;
+import com.dignity.puppymarket.service.AuthenticationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,10 +16,10 @@ public class SessionController {
     public SessionController(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
     }
-    
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public SessionResultData login(@RequestBody AuthenticationCreateData authenticationCreateData) {
-        return authenticationService.createToken(authenticationCreateData);
+    public SessionResponseDto login(@RequestBody AuthenticationCreateDto authenticationCreateDto) {
+        return authenticationService.createToken(authenticationCreateDto);
     }
 }
