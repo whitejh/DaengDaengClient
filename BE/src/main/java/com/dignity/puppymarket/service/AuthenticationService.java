@@ -3,6 +3,7 @@ package com.dignity.puppymarket.service;
 import com.dignity.puppymarket.dto.AuthenticationCreateDto;
 import com.dignity.puppymarket.dto.SessionResponseDto;
 import com.dignity.puppymarket.dto.User.UserLoginResponseDto;
+import com.dignity.puppymarket.error.AuthenticationBadRequestException;
 import com.dignity.puppymarket.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,6 @@ public class AuthenticationService {
         return userRepository.findByEmail(email)
                 .filter(u -> u.authenticate(password, passwordEncoder))
                 .map(UserLoginResponseDto::of)
-                .orElseThrow(AuthenticationBadRequestException::new);
+                .orElseThrow(() -> new AuthenticationBadRequestException(email));
     }
 }
