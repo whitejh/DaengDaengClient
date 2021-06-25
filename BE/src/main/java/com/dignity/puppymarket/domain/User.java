@@ -3,6 +3,7 @@ package com.dignity.puppymarket.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +22,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "user")
+@ToString(exclude = {"sellerItemList", "buyerItemList", "blame", "wish", "chatRoomList", "chatMessageList"})
 public class User {
     @Id
     @GeneratedValue

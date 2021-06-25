@@ -1,5 +1,6 @@
 package com.dignity.puppymarket.controller;
 
+import com.dignity.puppymarket.dto.Item.ItemGetResponseDto;
 import com.dignity.puppymarket.dto.Item.ItemResponseDto;
 import com.dignity.puppymarket.service.ItemService;
 import org.springframework.web.bind.annotation.GetMapping;

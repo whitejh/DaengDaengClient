@@ -1,7 +1,9 @@
 package com.dignity.puppymarket.service;
 
+import com.dignity.puppymarket.dto.Item.ItemGetResponseDto;
 import com.dignity.puppymarket.dto.Item.ItemHomeGetResponseDto;
 import com.dignity.puppymarket.dto.Item.ItemResponseDto;
+import com.dignity.puppymarket.error.ItemNotFoundException;
 import com.dignity.puppymarket.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,6 @@ public class ItemService {
     public ItemGetResponseDto getItem(Long id) {
         return itemRepository.findById(id)
                 .map(ItemGetResponseDto::of)
-                .orElseThrow(() -> ItemNotFoundException(id));
+                .orElseThrow(() -> new ItemNotFoundException(id));
     }
 }

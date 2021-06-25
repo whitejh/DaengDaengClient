@@ -25,6 +25,8 @@ public class ItemImageResponseDto {
     }
 
     public static ItemImageResponseDto of(ItemImage itemImage) {
+        if(itemImage == null) return null;
+
         return ItemImageResponseDto.builder()
                 .id(itemImage.getId())
                 .path(itemImage.getPath())
