@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -73,4 +74,8 @@ public class User {
     //User(sender) 1 : N ChatMessage
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sender")
     private List<ChatMessage> chatMessageList = new ArrayList<>();
+
+    public boolean authenticate(String password, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(password, this.password);
+    }
 }
