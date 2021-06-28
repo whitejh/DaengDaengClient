@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store/index';
 Vue.use(VueRouter);
 
 const routes = [
@@ -13,16 +14,15 @@ const routes = [
 		path: '/trade',
 		name: 'Trade',
 		component: () => import('@/views/Trade.vue'),
+		meta:{auth:true},
 
-		beforeEnter: (to, from, next) => {
-			console.log(to, from, next);
-			if (this.$store.state.auth.username !== '') next();
-		},
 	},
 	{
 		path: '/feed',
 		name: 'Feed',
 		component: () => import('@/views/Feed.vue'),
+
+		meta:{auth:true},
 	},
 	{
 		path: '/notice',
@@ -33,6 +33,7 @@ const routes = [
 		path: '/chat',
 		name: 'Chat',
 		component: () => import('@/views/Chat.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/loginjoin',
@@ -43,21 +44,25 @@ const routes = [
 		path: '/:mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/noticeadd',
 		name: 'NoticeAdd',
 		component: () => import('@/views/NoticeAdd.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/productdetail',
 		name: 'ProductDetail',
 		component: () => import('@/views/ProductDetail.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/report',
 		name: 'Report',
 		component: () => import('@/views/Report.vue'),
+		
 	},
 	{
 		path: '/adminnotice',
@@ -69,6 +74,7 @@ const routes = [
 		path: '/adminreport',
 		name: 'AdminReport',
 		component: () => import('@/views/AdminReport.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/adlist',
@@ -86,6 +92,17 @@ export const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
 	routes,
+});
+
+// 이동할 페이지 , 현재 페이지, 다음 페이지로 넘거가도록 호출
+router.beforeEach((to, from, next) => {
+	if (to.meta.auth && !store.getters.isLogin) {
+		console.log('인증이 필요합니다.');
+		next('/loginjoin');
+		return; // 다음 next 호출을 막기위해
+	}
+
+	next();
 });
 
 export default router;

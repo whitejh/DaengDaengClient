@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import state from './Sidemenu/index.js';
+import state from './Sidemenu/index';
 import mutations from './mutations.js';
 import actions from './actions.js';
 import category from './Category/category.js';
@@ -17,6 +17,8 @@ export const store = new Vuex.Store({
 	actions,
 	state,
 	modules: {category,goods},
+	// category,
+	// goods,
 });
 
 export default store;

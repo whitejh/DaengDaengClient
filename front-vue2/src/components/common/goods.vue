@@ -144,7 +144,7 @@ export default {
   },
   computed: {
     getTest() {
-      return this.$store.state.test;
+      return this.$store.state.state.test;
     },
   },
 };
