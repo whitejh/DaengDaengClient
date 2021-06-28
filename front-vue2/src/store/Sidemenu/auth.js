@@ -2,6 +2,8 @@ const authState = {
 	auth: {
 		username: '',
 		token: '',
+		
+
 	},
 };
 

@@ -188,14 +188,15 @@ export default {
 			const host = 'http://' + window.location.host + '/chat';
 			window.open(host, 'a', 'width=800, height=880, left=100, top=50');
 		},
-	},
-	components: {
-		SideMenu,
 		// 로그아웃 메소드
 		logoutUser() {
 			this.$store.commit('clearUsername');
 			this.$router.push('loginjoin');
 		},
+	},
+	components: {
+		SideMenu,
+		
 	},
 };
 </script>
