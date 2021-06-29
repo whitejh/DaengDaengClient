@@ -12,11 +12,11 @@ import { setInterceptors } from './common/interceptor';
 // const instance = createInstance();
 
 function loginUser(userData) {
-	const url = 'http://localhost:3000/login';
+	const url = 'http://localhost:8080/login';
 	return axios.post(url, userData);
 }
 function registerUser(userData) {
-	const url = 'http://localhost:3000/signup';
+	const url = 'http://localhost:8080/users';
 
 	return axios.post(url, userData);
 }

@@ -107,9 +107,10 @@
 										</div>
 										<div class="user-info">
 											<router-link to="/adminnotice">
-												<h6 class="user-name">
-													{{ $store.state.auth.username }}
-												</h6>
+												<p class="user-name">
+													{{ $store.state.auth.token }}
+												</p>
+			
 											</router-link>
 											<span class="text-xs text-muted">환영합니다!</span>
 										</div>
@@ -143,6 +144,7 @@
 					</div>
 				</div>
 			</template>
+			<p>{{ $store.state.auth.token }}</p>
 		</header>
 		<SideMenu></SideMenu>
 	</div>

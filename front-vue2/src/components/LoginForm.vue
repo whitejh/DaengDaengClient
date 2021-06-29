@@ -72,7 +72,7 @@
 				</button>
 			</div>
 		</form>
-		<p class="log">{{ logMessage }}</p>
+	
 	</div>
 </template>
 
@@ -102,9 +102,9 @@ export default {
 					password: this.password,
 				};
 				const { data } = await loginUser(userData);
-				console.log(data.user.username);
+				console.log(data);
 				this.$store.commit('setToken', data.token);
-				this.$store.commit('setUsername', data.user.username);
+				//this.$store.commit('setUsername', data.user.username);
 				this.$router.push('/');
 			} catch (error) {
 				console.log(error);
