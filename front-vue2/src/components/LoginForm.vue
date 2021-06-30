@@ -26,7 +26,7 @@
 							type="email"
 							placeholder="Email"
 							required
-							v-model="username"
+							v-model="email"
 						/>
 					</div>
 					<!-- <span class="input-group-addon"><i class="icon-mail"></i></span> -->
@@ -66,7 +66,7 @@
 				<button
 					class="btn btn-primary margin-bottom-none"
 					type="submit"
-					:disabled="!isUsernameValid || !password"
+					:disabled="!isEmailValid || !password"
 				>
 					로그인
 				</button>
@@ -79,35 +79,50 @@
 <script>
 import { validateEmail } from '../utils/validation';
 import { loginUser } from '../api/index';
+import {saveAuthToCookie,saveUserToCookie} from '../utils/cookies';
 export default {
 	data() {
 		return {
 			// form values
-			username: '',
+			email: '',
 			password: '',
 			// log
 			logMessage: '',
 		};
 	},
 	computed: {
-		isUsernameValid() {
-			return validateEmail(this.username);
+		isEmailValid() {
+			return validateEmail(this.email);
 		},
 	},
 	methods: {
 		async submitForm() {
 			try {
 				const userData = {
-					username: this.username,
+					email: this.email,
 					password: this.password,
 				};
-				const { data } = await loginUser(userData);
-				console.log(data);
-				this.$store.commit('setToken', data.token);
-				//this.$store.commit('setUsername', data.user.username);
+				/**
+				 *  쿠키로 값을 받아 스토어에 전달하는 방식 
+				 */
+				await this.$store.dispatch('LOGIN',userData);
 				this.$router.push('/');
+				
+
+				/**
+				 * regacy
+				 */
+				// const { data } = await loginUser(userData);
+				// console.log(data);
+				// this.$store.commit('setToken', data.token);
+				// this.$store.commit('setEmail', this.email);
+				// this.$router.push('/');
+				// 쿠키에 저장 
+				// saveAuthToCookie(data.token);
+				// saveUserToCookie(this.email);
 			} catch (error) {
-				console.log(error);
+				console.log(error.response.data);
+				this.logMessage = error.response.data
 			} finally {
 				//
 			}

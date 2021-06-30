@@ -41,7 +41,7 @@ const routes = [
 		component: () => import('@/views/LoginJoin.vue'),
 	},
 	{
-		path: '/:mypage',
+		path: '/mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
 		meta:{auth:true},
@@ -68,13 +68,14 @@ const routes = [
 		path: '/adminnotice',
 		name: 'AdminNotice',
 		component: () => import('@/views/AdminNotice.vue'),
+		meta: {admin:true,auth:true}
 	},
 
 	{
 		path: '/adminreport',
 		name: 'AdminReport',
 		component: () => import('@/views/AdminReport.vue'),
-		meta:{auth:true},
+		meta: {auth:true,admin:true}
 	},
 	{
 		path: '/adlist',
@@ -85,6 +86,10 @@ const routes = [
 		path: '/category/:big?/:mid?',
 		name: 'Category',
     component: () => import('@/components/FeaturedItem.vue'),
+	},
+	{
+			path: '*',
+			component: () => import('@/views/NotFoundPage.vue'),
 	},
 ];
 
@@ -100,6 +105,14 @@ router.beforeEach((to, from, next) => {
 		console.log('인증이 필요합니다.');
 		next('/loginjoin');
 		return; // 다음 next 호출을 막기위해
+	}
+
+	// 관리자 페이지 인증 
+	if(to.meta.admin && !store.getters.isAdmin){
+		console.log('관리자만 접근이 가능합니다.!');
+		alert('관리자만 접근이 가능합니다.!');
+		next('/');
+		return;
 	}
 
 	next();

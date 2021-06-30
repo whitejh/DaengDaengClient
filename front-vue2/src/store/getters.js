@@ -3,4 +3,8 @@ export default {
 	isLogin(state) {
 		return state.auth.token !== '';
 	},
+
+	isAdmin(state){
+		return state.auth.email =="admin@naver.com";
+	}
 };

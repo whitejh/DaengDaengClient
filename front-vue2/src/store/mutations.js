@@ -38,11 +38,11 @@ export default {
 	},
 
 	// 로그인(auth) 관련 mutation 입니다.
-	setUsername(state, username) {
-		state.auth.username = username;
+	setEmail(state, email) {
+		state.auth.email = email;
 	},
 	clearUsername(state) {
-		state.auth.username = '';
+		state.auth.token = '';
 	},
 	setToken(state, token) {
 		state.auth.token = token;

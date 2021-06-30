@@ -30,7 +30,7 @@
             href="#mobile-menu"
             data-toggle="offcanvas"></a> -->
 
-					<router-link class="site-logo" to="/">
+					<router-link class="site-logo" to=/>
 						<img
 							src="@/assets/img/header_logo.png"
 							alt="댕댕마켓"
@@ -49,7 +49,9 @@
 						</router-link>
 					</li>
 					<li>
-						<a href="#"><span>댕댕피드</span></a>
+						<router-link to="/feed">
+							<span>댕댕피드</span>
+						</router-link>
 					</li>
 					<li>
 						<router-link to="/notice">
@@ -108,7 +110,7 @@
 										<div class="user-info">
 											<router-link to="/adminnotice">
 												<p class="user-name">
-													{{ $store.state.auth.token }}
+													{{ $store.state.auth.email }}
 												</p>
 			
 											</router-link>
@@ -144,7 +146,7 @@
 					</div>
 				</div>
 			</template>
-			<p>{{ $store.state.auth.token }}</p>
+			<!-- <p>{{ $store.state.auth.email }}</p> -->
 		</header>
 		<SideMenu></SideMenu>
 	</div>
@@ -163,6 +165,10 @@ export default {
 		isUserLogin() {
 			return this.$store.getters.isLogin;
 		},
+
+		logoLink(){
+			return this.$store.getters.isLogin ? '/main': '/login';
+		}
 	},
 
 	data: () => ({

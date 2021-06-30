@@ -2,6 +2,7 @@ import { getGoodsList, getGoodsOne } from '@/api/Goods.js';
 const state = {
 	goods: [
         {
+			
 			id: 1,
 			name: '강아지도 쓸 수 있는 집',
 			price: 20000,
