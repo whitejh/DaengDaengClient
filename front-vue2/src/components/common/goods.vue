@@ -1,10 +1,13 @@
 <template>
   <v-container class="grey lighten-5">
     <!-- testData를 getTest로 변경하면 json-server 없이 화면에 띄우는 것 가능 -->
-    <div v-if="$store.state.goods.goods.length > 0">
+    <Sort v-on:pass="SortGoods"></Sort>
+    <!-- v-on:pass="deliverGoods" -->
+    <!-- v-bind:goodsData="getGoods" -->
+    <div v-if="goodsData.length > 0">
       <v-row>
         <v-col
-          v-for="item in $store.state.goods.goods"
+          v-for="item in goodsData"
           v-bind:key="item"
           sm="3"
           xl="3"
@@ -14,7 +17,7 @@
           cols="12"
         >
           <div class="card">
-            <div class="dropdown" v-if="urlInfo==='/mypage'">
+            <div class="dropdown" v-if="urlInfo === '/mypage'">
               <button
                 class="btn btn-secondary dropdown-toggle"
                 type="button"
@@ -64,7 +67,8 @@
         </v-col>
       </v-row>
     </div>
-    <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+
+    <infinite-loading v-if="infiniteChange" @infinite="infiniteHandler" spinner="waveDots" >
       <div
         slot="no-more"
         style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px"
@@ -72,79 +76,95 @@
         목록의 끝입니다 :)
       </div>
     </infinite-loading>
+
   </v-container>
 </template>
 
 <script>
+import Sort from "./sort.vue";
 import InfiniteLoading from "vue-infinite-loading";
-import axios from "axios";
+import { getGoodsList } from "../../api/Goods.js";
 // //watchar 가 화면에 들어오면, 콜백함수를 실행하겠다
 export default {
   data: () => ({
-    testData: [],
+    goodsData: [],
     page: 1,
-    limit: 12,
-    max_num: 0,
-	urlInfo:'',
+    limit: 8,
+    start: 0,
+    urlInfo: window.location.pathname,
+    searchData: "",
+    infiniteChange:true,
+    // mid:this.$route.params.mid,
+    isSearch: 0,
   }),
+  async created() {
+    try {
+      const response = await getGoodsList(this.limit);
+      if(this.$route.params.length==0){
+        this.goodsData = response.data;
+      }
+      else{
+        let i=0;
+        this.goodsData=[];
+        for(i=0; i<response.data.length;i++){
+          if(this.$route.params.big==response.data[i].big_category && this.$route.params.mid==response.data[i].mid_category){
+            this.goodsData.push(response.data[i]);
+            this.infiniteChange=false;
+          }
+        }
+      }
+      console.log(response);
+      console.log(this.$route.params.big)
+      console.log(response.data[0].big_category)
+    } catch (error) {
+      alert(error);
+    }
+  },
+
   components: {
     InfiniteLoading,
+    Sort,
   },
   methods: {
-    gettestData: function () {
-      const options = {
-        params: {
-          //limit는 무한스크롤이 진행되면서 다음에 불러올 페이지 번호 또는 아이디를 업데이트
-          _page: this.page++, // 기존값 가져와서 쓰고나서 1을 올린다//++page는 올리고 쓴다
-          _limit: 12,
-        },
-      };
-      this.page++; // 기존값 가져와서 쓰고나서 1을 올린다
-      // json-server를 이용해 api를 띄우고 url을 매핑해주었다.
-      axios
-        .get("http://localhost:3001/test", options)
-        .then((res) => {
-          this.testData = [...this.testData, ...res.data];
-        })
-        .catch((err) => console.error(err));
+    searchGoods(data) {
+      this.searchData = data;
+      this.isSearch = 1;
     },
     infiniteHandler($state) {
-      const options = {
-        params: {
-          //limit는 무한스크롤이 진행되면서 다음에 불러올 페이지 번호 또는 아이디를 업데이트
-          _limit: this.limit + 12,
-        },
-      };
-      axios
-        .get("http://localhost:3001/test", options)
-        .then((response) => {
-          setTimeout(() => {
-            if (response.data.length > 0) {
-              this.testData = this.testData.concat(response.data);
-              $state.loaded();
-              this.limit += 12;
-              // 데이터를 12로 나눴을 때 12보다 작게 되면
-              if (response.length / 12 < 1) {
-                $state.complete(); // 데이터가 없으면 로딩 끝
+      // const options = {
+      //   params: {
+      //     //limit는 무한스크롤이 진행되면서 다음에 불러올 페이지 번호 또는 아이디를 업데이트
+      //     _limit: this.limit + 12,
+      //   },
+      // };
+      // if(this.$route.params.length==0){
+        getGoodsList(this.limit)
+          .then((response) => {
+            setTimeout(() => {
+              if (response.data.length > 0) {
+                this.goodsData = this.goodsData.concat(
+                  response.data.slice(this.start, this.limit)
+                );
+                $state.loaded();
+                this.limit += 8;
+                this.start += 8;
+                // 데이터를 8로 나눴을 때 8보다 작게 되면
+                if (response.length / 8 < 1) {
+                  $state.complete(); // 데이터가 없으면 로딩 끝
+                }
+              } else {
+                $state.complete();
               }
-            } else {
-              $state.complete();
-            }
-          }, 1000);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+            }, 1000);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        // }
     },
-  },
-  created: function () {
-    // 초기화 이후 AJAX 요청을 보내기 좋은 Hook이 created이다.
-    this.gettestData();
-	this.urlInfo=window.location.pathname;
-  },
-  computed: {
-    getTest() {
-      return this.$store.state.test;
+    SortGoods(sortedGoods){
+      this.goodsData=sortedGoods;
+      console.log('ilove')
     },
   },
 };

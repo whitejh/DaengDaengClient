@@ -34,7 +34,7 @@
 					<div class="col-sm-6 col-md-4 margin-top-2x margin-bottom-2x">
 						<div class="card container" style="max-width: 17rem;">
 							<img
-								src="../assets/x.png"
+								src="@/assets/x.png"
 								class="card-img-top margin-top-1x"
 								alt="..."
 							/>
@@ -53,7 +53,7 @@
 					<div class="col-sm-6 col-md-4 margin-top-2x margin-bottom-2x">
 						<div class="card container" style="max-width: 20rem;">
 							<img
-								src="../assets/x.png"
+								src="@/assets/x.png"
 								class="card-img-top margin-top-1x"
 								alt="..."
 							/>
@@ -72,7 +72,7 @@
 					<div class="col-sm-6 col-md-4 margin-top-2x margin-bottom-2x">
 						<div class="card container" style="width: 17rem;">
 							<img
-								src="../assets/x.png"
+								src="@/assets/x.png"
 								class="card-img-top margin-top-1x"
 								alt="..."
 							/>
