@@ -38,7 +38,7 @@ function createInstanceWithAuth(url) {
 	});
 	return setInterceptors(instance);
 }
-export const goods = createInstanceWithAuth('goods');
+export const goods = createInstanceWithAuth('goods/');
 
 
 // 1. HTTP Request & Response와 관련된 기본 설정

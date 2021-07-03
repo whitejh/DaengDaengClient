@@ -24,6 +24,10 @@ function getGoodsList(limit) {
   return goods.get(`/?_limit=${limit}`);
 } 
 
+function getOneGoods(goodsId) {
+  return goods.get(`/${goodsId}`);
+} 
+
 function getSortGoods(sortID,orderID){
 	return goods.get(`?_sort=${sortID}&_order=${orderID}`);
 }
@@ -34,5 +38,6 @@ export{
 	updateGoods,
 	deleteGoods,
 	getGoodsList,
+	getOneGoods,
 	getSortGoods,
 };

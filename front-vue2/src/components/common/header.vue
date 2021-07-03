@@ -230,6 +230,9 @@ header {
 }
 .searchmenu {
 	padding-left: 200px;
+
+
+	
 	width: 400px;
 }
 .title {
