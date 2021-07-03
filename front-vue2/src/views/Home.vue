@@ -100,8 +100,6 @@
 								물품
 							</h2>
 						</div>
-						
-						<Sort></Sort>
 						<Goods></Goods>
 					</div>
 				</div>
@@ -112,12 +110,10 @@
 
 <script>
 import Goods from '../components/common/goods.vue';
-import Sort from '../components/common/sort.vue'
 export default {
 	name: '',
 	components: {
 		Goods,
-		Sort,
 	},
 	data() {
 		return {};

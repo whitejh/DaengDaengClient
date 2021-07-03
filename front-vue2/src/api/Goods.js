@@ -1,41 +1,38 @@
 import { goods } from './index.js';
 
-// 카테고리별로 정렬된 결과를 api로 받아온다
 function getCategory(reqData) {
-	return goods.get(`/category/${reqData}`);
-}
-
-//
-function getCategoryList() {
-	return goods.post('/getCategoryList');
+  return goods.get(reqData);
 }
 
 function InsertGoods(goodsData) {
-	return goods.post('/InsertGoods', goodsData);
+  return goods.post('/', goodsData);
 }
 
-function updateGoods(reqData) {
-	return goods.post('/updateGoods', reqData);
+function updateGoods(reqID,reqData) {
+  return goods.put(reqID,reqData);
 }
 
-function deleteGoods(reqData) {
-	return goods.post('/deleteGoods', reqData);
+function deleteGoods(reqID) {
+  return goods.delete(reqID);
 }
 
-function getGoodsOne(reqData) {
-	return goods.get(`/getGoodsOne/${reqData}`);
+function getGoodsOne(reqID) {
+  return goods.get(reqID);
 }
 
-function getGoodsList(reqData_big,reqData_mid) {
-	return goods.post(`/getGoodsList`, reqData_big,reqData_mid);
+function getGoodsList(limit) {
+  return goods.get(`/?_limit=${limit}`);
+} 
+
+function getSortGoods(sortID,orderID){
+	return goods.get(`?_sort=${sortID}&_order=${orderID}`);
 }
 
-export {
+export{
 	getCategory,
 	InsertGoods,
-	getGoodsList,
 	updateGoods,
 	deleteGoods,
-	getGoodsOne,
-	getCategoryList,
+	getGoodsList,
+	getSortGoods,
 };

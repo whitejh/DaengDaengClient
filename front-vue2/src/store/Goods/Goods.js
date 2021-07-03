@@ -107,7 +107,10 @@ const mutations = {
 	getGoodOne(state, data) {
 		state.goods = data.data.results;
 	},
-};
+	ChangeGoods(state,newGoods){
+		state.goods=newGoods
+	}
+}
 
 const actions = {
 	async getGoodList(context, data) {
@@ -128,11 +131,15 @@ const actions = {
 	},
 };
 
-const getters = {};
+const getters={
+	getGoods(state){
+		return state.goods;
+	}
+}
 
 export default {
 	state,
-	// mutations,
+	mutations,
 	// actions,
-	// getters,
+	getters,
 };
