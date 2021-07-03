@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Header v-if="chatcheck" />
-		<router-view />
+		<router-view :key="$route.fullPath"/>
 		<Footer v-if="chatcheck" />
 	</div>
 </template>

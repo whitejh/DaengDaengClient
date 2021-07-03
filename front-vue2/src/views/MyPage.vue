@@ -112,11 +112,8 @@
             id="itemlist"
             role="tabpanel"
             aria-labelledby="itemlist-tab">
-			<sort></sort>
            	<goods></goods>
 		   
-
-           
           </div>
 
           <!-- 탭 2 : 상품후기 -->
@@ -310,10 +307,9 @@
 
 <script>
 import Goods from '@/components/common/goods.vue'
-import Sort from '@/components/common/sort.vue'
   export default {
     data: () => ({
-		  modalShown: false,
+		modalShown: false,
 	}),
 	methods: {
 		toggleModal() {
@@ -322,7 +318,6 @@ import Sort from '@/components/common/sort.vue'
 	},
 	components:{
 		Goods,
-		Sort,
 	}
   };
 </script>

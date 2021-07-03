@@ -1,21 +1,46 @@
 {
-    "test":[ 
+    "page":1,
+    "goods":[ 
         {
             "id": 1,
             "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
+            "price": 18000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/02.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         
         {
             "id": 1,
             "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
+            "price": 60000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"2"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 40000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/03.jpg",
+            "big_category":"3",
+            "mid_category":"2"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 40000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"2",
+            "mid_category":"3"
         },
         {
             "id": 1,
@@ -23,7 +48,9 @@
             "price": 20000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/05.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 1,
@@ -31,7 +58,9 @@
             "price": 20000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"2",
+            "mid_category":"5"
         },
         {
             "id": 1,
@@ -39,7 +68,9 @@
             "price": 20000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"2",
+            "mid_category":"6"
         },
         {
             "id": 1,
@@ -47,7 +78,9 @@
             "price": 20000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"2",
+            "mid_category":"1"
         },
         {
             "id": 1,
@@ -55,79 +88,9 @@
             "price": 20000,
             "wanted_location": "삼성1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
-        },
-        {
-            "id": 1,
-            "name": "강아지도 쓸 수 있는 집",
-            "price": 20000,
-            "wanted_location": "삼성1동",
-            "time":"1시간 전",
-            "path": "../../public/../img/shop/products/01.jpg"
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"2",
+            "mid_category":"4"
         },
         {
             "id": 9,
@@ -135,7 +98,9 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"5"
         },
         {
             "id": 9,
@@ -143,7 +108,70 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"3",
+            "mid_category":"3"
+        },
+
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 9,
@@ -151,7 +179,9 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 9,
@@ -159,7 +189,9 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 9,
@@ -167,7 +199,9 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 9,
@@ -175,7 +209,9 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 9,
@@ -183,7 +219,19 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"1"
+        },
+        {
+            "id": 1,
+            "name": "강아지도 쓸 수 있는 집",
+            "price": 20000,
+            "wanted_location": "삼성1동",
+            "time":"1시간 전",
+            "path": "../../public/../img/shop/products/01.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         },
         {
             "id": 9,
@@ -191,7 +239,9 @@
             "price": 12000,
             "wanted_location": "개포1동",
             "time":"1시간 전",
-            "path": "../../public/../img/shop/products/09.jpg"
+            "path": "../../public/../img/shop/products/09.jpg",
+            "big_category":"1",
+            "mid_category":"1"
         }
     ]
 }

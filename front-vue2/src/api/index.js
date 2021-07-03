@@ -33,11 +33,14 @@ export { loginUser, registerUser };
 
 function createInstanceWithAuth(url) {
 	const instance = axios.create({
-		baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
+		// baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
+		baseURL:`http://localhost:3002/${url}`
 	});
 	return setInterceptors(instance);
 }
 export const goods = createInstanceWithAuth('goods');
+
+
 // 1. HTTP Request & Response와 관련된 기본 설정
 // const config = {
 // 	baseUrl: 'https://api.hnpwa.com/v0/',
