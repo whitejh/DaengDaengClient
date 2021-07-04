@@ -15,43 +15,28 @@
 </template>
 
 <script>
-
+import { getGoodsList } from "../../api/Goods.js";
 export default {
   props:{
-    goodsdata:[],
-    goodsdataOriginal:[],
-    goodsdataFinish:[],
+    goodsdata:Array,
+    goodsdataOriginal:Array,
+    goodsdataFinish:Array,
     infiniteBtn:Boolean,
   },
   data() {
     return {
       // goodsOriginal:[...this.$store.state.goods.goods],
       // goods:this.$store.state.goods.goods,
-      mypageCheck: false,
       sortType:'',
+      turnCheck:false,
     };
   },
-
-  // {
-  //   sortgoods:['goodsdata'],
-  //   goodsOriginal:['goodsdata']
-  // },
   mounted() {
-    if (window.location.pathname === "/mypage") {
-      this.mypageCheck = true;
-    } else {
-      this.mypageCheck = false;
-    }
+
   },
-  // props:{
-  //   // goodsData:['goodsData']
-  // },
   methods: {
     async sortBy() {
-      // let i=0;
-      // let standard='';
-      // let order='';
-      // let check=false
+      this.turnCheck=false;
       switch(this.sortType){
         case 'old':{
           this.goodsdata.sort(function(a,b){
@@ -74,16 +59,24 @@ export default {
         case 'finish':{
           this.goodsdata=[];
           this.goodsdata=this.goodsdataFinish;
+          break;
         }
         case 'turn':{
+          const response = await getGoodsList(8);
+          this.goodsdata = response.data;
           this.goodsdata.sort(function(a,b){
             return b.id-a.id;
           })
+          this.turnCheck=true;
           break;
         }
       }
       try {
           this.infiniteBtn=false;
+          // 되돌릴 때는 무한스크롤 작동
+          if(this.turnCheck==true){
+            this.infiniteBtn=true;
+          }
           this.$emit('pass',this.goodsdata)
           this.$emit('change',this.infiniteBtn);
           console.log(this.goodsdata);

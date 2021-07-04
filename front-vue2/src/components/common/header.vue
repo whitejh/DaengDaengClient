@@ -150,6 +150,9 @@ export default {
 		isUserLogin() {
 			return this.$store.getters.isLogin;
 		},
+		logoLink(){
+			return this.$store.getters.isLogin ? '/main': '/login';
+		}
 	},
 
 	data: () => ({
@@ -185,16 +188,15 @@ export default {
 			else{
 				this.$router.push('/');
 			}
-			
-		}
-	},
-	components: {
-		SideMenu,
+		},
 		// 로그아웃 메소드
 		logoutUser() {
 			this.$store.commit('clearUsername');
 			this.$router.push('loginjoin');
 		},
+	},
+	components: {
+		SideMenu,
 	},
 };
 </script>

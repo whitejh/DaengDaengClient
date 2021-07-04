@@ -1,3 +1,4 @@
+  
 <template>
 	<div id="home">
 		<!-- 배너슬라이드  -->
@@ -31,9 +32,10 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img
-						src="../../public/img/banners/home02.jpg"
+						src="../../public/img/banners/dog1.jpg"
 						class="d-block w-100"
-						alt="../../public/img/banners/home02.jpg"
+						alt="슬라이드 배너 1"
+						style="width:700px; height: 500px;"
 					/>
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
@@ -42,9 +44,10 @@
 				</div>
 				<div class="carousel-item">
 					<img
-						src="../../public/img/banners/home02.jpg"
+						src="../../public/img/banners/dog2.jpg"
 						class="d-block w-100"
-						alt="../../public/img/banners/home02.jpg"
+						alt="슬라이드 배너 1"
+						style="width:700px; height: 500px;"
 					/>
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
@@ -53,9 +56,10 @@
 				</div>
 				<div class="carousel-item">
 					<img
-						src="../../public/img/banners/home02.jpg"
+						src="../../public/img/banners/dog3.jpg"
 						class="d-block w-100"
-						alt="../../public/img/banners/home02.jpg"
+						alt="슬라이드 배너 1"
+						style="width:700px; height: 500px;"
 					/>
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>

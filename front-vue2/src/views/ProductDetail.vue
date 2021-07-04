@@ -13,20 +13,21 @@
 						<div class="gallery-wrapper"></div>
 						<div class="product-carousel owl-carousel gallery-wrapper">
 							<div class="gallery-item" data-hash="one">
-								<a href="img/km/01.jpg" data-size="1000x667"
-									><img src="img/km/01.jpg" alt="Product"
+								<a href="#" data-size="1000x667"
+									><img src="../../public/img/km/01.jpg" alt="Product"
 								/></a>
 							</div>
 						</div>
 						<ul class="product-thumbnails">
 							<li class="active">
-								<a href="#one"><img src="img/km/01.jpg" alt="Product"/></a>
+								<!-- {{this.goods.path}} -->
+								<a href="#one"><img src="../../public/img/km/01.jpg" alt="Product"/></a>
 							</li>
 							<li>
-								<a href="#two"><img src="img/km/02.jpg" alt="Product"/></a>
+								<a href="#two"><img src="/img/km/02.jpg" alt="Product"/></a>
 							</li>
 							<li>
-								<a href="#three"><img src="img/km/03.jpg" alt="Product"/></a>
+								<a href="#three"><img src="/img/km/03.jpg" alt="Product"/></a>
 							</li>
 						</ul>
 					</div>
@@ -43,7 +44,7 @@
 					<v-row text-center>
 						<v-col cols="6" style="margin-left: 10px">
 							<img
-								src="img/account/user-ava-md.jpg"
+								src="/img/account/user-ava-md.jpg"
 								style="width: 50px; height: 50px"
 								alt="Daniel Adams"
 							/>
@@ -78,17 +79,17 @@
 					</v-row>
 
 					<p style="margin-top: 50px">
-						<span style="font-size: 30px">명품 강아지 옷 팝니다</span
+						<span style="font-size: 30px">{{this.goods.name}}</span
 						><span>
 							<img
-								src="img/km/view.png"
+								src="/img/km/view.png"
 								style="width: 20px; height: 20px; margin-left: 100px"
 								alt="Daniel Adams"
 						/></span>
 						<span>2</span
 						><span>
 							<img
-								src="img/km/heart.png"
+								src="/img/km/heart.png"
 								style="width: 20px; height: 20px"
 								alt="Daniel Adams"
 						/></span>
@@ -99,13 +100,13 @@
 						<div class="col-12" style="font-size: 15px">
 							<ul class="list-group">
 								<li class="list-group-item">
-									가격: 15,000원
+									가격: {{this.goods.price}}원
 								</li>
 								<li class="list-group-item">
 									네고여부: 가능
 								</li>
 								<li class="list-group-item">
-									거래희망지역: 서울특별시 용산구 청파동
+									거래희망지역:{{this.goods.wanted_location}}
 								</li>
 							</ul>
 						</div>
@@ -115,8 +116,7 @@
 						<br />
 					</h4>
 					<h6>
-						귀여운 강아지 옷 팝니다. 강아지가 얼마 전에 사고를 당했는데
-						정리하려고 싼 값에 올립니다
+						{{this.goods.description}}
 					</h6>
 					<br /><br />
 
@@ -190,7 +190,7 @@
 							22% Off
 						</div>
 						<a class="product-thumb" href="shop-single.html"
-							><img src="img/shop/products/09.jpg" alt="Product"
+							><img src="/img/shop/products/09.jpg" alt="Product"
 						/></a>
 						<h3 class="product-title">
 							<a href="shop-single.html">Rocket Dog</a>
@@ -227,7 +227,7 @@
 							><i class="icon-star"></i>
 						</div>
 						<a class="product-thumb" href="shop-single.html"
-							><img src="img/shop/products/03.jpg" alt="Product"
+							><img src="/img/shop/products/03.jpg" alt="Product"
 						/></a>
 						<h3 class="product-title">
 							<a href="shop-single.html">Oakley Kickback</a>
@@ -261,7 +261,7 @@
 				<div class="grid-item">
 					<div class="product-card">
 						<a class="product-thumb" href="shop-single.html"
-							><img src="img/shop/products/12.jpg" alt="Product"
+							><img src="/img/shop/products/12.jpg" alt="Product"
 						/></a>
 						<h3 class="product-title">
 							<a href="shop-single.html">Vented Straw Fedora</a>
@@ -300,7 +300,7 @@
 							><i class="icon-star filled"></i>
 						</div>
 						<a class="product-thumb" href="shop-single.html"
-							><img src="img/shop/products/11.jpg" alt="Product"
+							><img src="/img/shop/products/11.jpg" alt="Product"
 						/></a>
 						<h3 class="product-title">
 							<a href="shop-single.html">Top-Sider Fathom</a>
@@ -334,7 +334,7 @@
 				<div class="grid-item">
 					<div class="product-card">
 						<a class="product-thumb" href="shop-single.html"
-							><img src="img/shop/products/04.jpg" alt="Product"
+							><img src="/img/shop/products/04.jpg" alt="Product"
 						/></a>
 						<h3 class="product-title">
 							<a href="shop-single.html">Waist Leather Belt</a>
@@ -371,7 +371,7 @@
 							50% Off
 						</div>
 						<a class="product-thumb" href="shop-single.html"
-							><img src="img/shop/products/01.jpg" alt="Product"
+							><img src="/img/shop/products/01.jpg" alt="Product"
 						/></a>
 						<h3 class="product-title">
 							<a href="shop-single.html">Unionbay Park</a>
@@ -405,15 +405,28 @@
 </template>
 
 <script>
+import {getOneGoods} from '../api/Goods';
 export default {
+	
 	data: () => ({
 		modalShown: false,
+		goods : {
+		}
+		
 	}),
 	methods: {
 		toggleModal() {
 			this.modalShown = !this.modalShown;
 		},
 	},
+	async created() {
+		const itemId = this.$route.params.id;
+		const  response = await getOneGoods(itemId);
+		
+		console.log(response.data);
+		this.goods = response.data;
+		
+	}
 };
 </script>
 

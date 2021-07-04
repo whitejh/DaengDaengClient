@@ -9,6 +9,7 @@
 					placeholder="제목"
 				/>
 			</div>
+
 			<div class="mb-3">
 				<label for="exampleFormControlTextarea1" class="form-label">내용</label>
 				<textarea

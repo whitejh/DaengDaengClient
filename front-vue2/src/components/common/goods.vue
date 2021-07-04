@@ -61,7 +61,7 @@
               </router-link>
             </div>
             <div class="card-footer">
-              <small class="text-muted">{{ item.time }}</small>
+              <small class="text-muted">{{ item.created_at }}</small>
             </div>
           </div>
           <div class="card" v-bind:style="mycard" v-else>
@@ -109,7 +109,7 @@
               </router-link>
             </div>
             <div class="card-footer">
-              <small class="text-muted">{{ item.time }}</small>
+              <small class="text-muted">{{ item.created_at }}</small>
             </div>
           </div>
         </v-col>
@@ -188,14 +188,9 @@ export default {
       this.isSearch = 1;
     },
     infiniteHandler($state) {
-      // const options = {
-      //   params: {
-      //     //limit는 무한스크롤이 진행되면서 다음에 불러올 페이지 번호 또는 아이디를 업데이트
-      //     _limit: this.limit + 12,
-      //   },
-      // };
-      // if(this.$route.params.length==0){
-      getGoodsList(this.limit)
+      // 인위적으로 limit 1000까지만 상품을 불러와준다.
+      if (this.limit<1000){
+        getGoodsList(this.limit)
         .then((response) => {
           setTimeout(() => {
             if (response.data.length > 0) {
@@ -217,14 +212,15 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-        // }
+      }
     },
     SortGoods(sortedGoods){
       this.goodsData=sortedGoods;
       console.log('sortOk')
     },
-    infiniteChangeBtn(){
-      this.infiniteChange=false;
+    infiniteChangeBtn(infinite){
+      this.infiniteChange=infinite;
+      console.log('infiniteOk')
     }
   },
 };

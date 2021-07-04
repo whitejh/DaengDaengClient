@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store/index';
 Vue.use(VueRouter);
 
 const routes = [
@@ -73,12 +74,16 @@ const routes = [
 	{
 		path: '/adlist',
 		name: 'AdList',
-    component: () => import('@/views/AdList.vue'),
+		component: () => import('@/views/AdList.vue'),
 	},
 	{
 		path: '/category/:big?/:mid?',
 		name: 'Category',
-    component: () => import('@/components/FeaturedItem.vue'),
+		component: () => import('@/components/FeaturedItem.vue'),
+	},
+	{
+		path: '*',
+		component: () => import('@/views/NotFoundPage.vue'),
 	},
 ];
 
@@ -86,6 +91,25 @@ export const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
 	routes,
+});
+
+// 이동할 페이지 , 현재 페이지, 다음 페이지로 넘거가도록 호출
+router.beforeEach((to, from, next) => {
+	if (to.meta.auth && !store.getters.isLogin) {
+		console.log('인증이 필요합니다.');
+		next('/loginjoin');
+		return; // 다음 next 호출을 막기위해
+	}
+
+	// 관리자 페이지 인증 
+	if (to.meta.admin && !store.getters.isAdmin) {
+		console.log('관리자만 접근이 가능합니다.!');
+		alert('관리자만 접근이 가능합니다.!');
+		next('/');
+		return;
+	}
+
+	next();
 });
 
 export default router;
