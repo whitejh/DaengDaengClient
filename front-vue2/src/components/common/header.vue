@@ -19,25 +19,14 @@
 			</form>
 			<div class="site-branding">
 				<div class="inner">
-					<!-- Off-Canvas Toggle (#shop-categories)-->
-					<!-- <a
-            class="offcanvas-toggle cats-toggle"
-            href="#shop-categories"
-            data-toggle="offcanvas"></a>
-          Off-Canvas Toggle (#mobile-menu)
-          <a
-            class="offcanvas-toggle menu-toggle"
-            href="#mobile-menu"
-            data-toggle="offcanvas"></a> -->
-
-					<router-link class="site-logo" to="/">
+					<div class="site-logo" @click="goHome" @focus="true">
 						<img
 							src="@/assets/img/header_logo.png"
 							alt="댕댕마켓"
 							style="width: 55px"
 						/>
 						<div class="title">댕댕마켓</div>
-					</router-link>
+					</div>
 				</div>
 			</div>
 			<!-- 메인 네비바 -->
@@ -188,6 +177,16 @@ export default {
 			const host = 'http://' + window.location.host + '/chat';
 			window.open(host, 'a', 'width=800, height=880, left=100, top=50');
 		},
+		goHome(){
+			console.log(this.$route.path)
+			if(this.$route.path=='/'){
+				this.$router.go();
+			}
+			else{
+				this.$router.push('/');
+			}
+			
+		}
 	},
 	components: {
 		SideMenu,
@@ -203,6 +202,7 @@ export default {
 .mr-2 {
 	padding-right: 10px;
 }
+
 .sidemenu-slide {
 	/* padding: 20px 20px 20px 20px; */
 	padding-left: 20px;

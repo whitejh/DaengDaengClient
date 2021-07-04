@@ -6693,6 +6693,8 @@ video {
   width: 154px;
   padding: 12px 0 12px 25px;
   text-decoration: none;
+  /* transition: color 0.3s; */
+  cursor:pointer;
 }
 
 .site-logo>img {
