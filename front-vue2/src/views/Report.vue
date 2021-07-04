@@ -1,6 +1,11 @@
 <template>
 	<div id="report">
 		report
+
+
+
+
+		
 	</div>
 </template>
 
