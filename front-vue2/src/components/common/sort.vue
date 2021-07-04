@@ -4,22 +4,25 @@
       <label for="sorting"></label>
       <select class="form-control" id="sorting" v-model="sortType" v-on:change="sortBy">
         <option disabled value="">정렬 선택</option>
-        <option value="new">최신 순</option>
-        <option value="old">오래된 순</option>
-        <option value="priceHigh">높은 가격순</option>
         <option value="priceLow">낮은 가격순</option>
-        <option>되돌리기</option>
-        <option v-if="mypageCheck">거래완료</option>
-        <option v-if="mypageCheck">거래중</option>
+        <option value="finish">거래완료</option>
+        <option value="priceHigh">높은 가격순</option>
+        <option value="old">오래된 순</option>
+        <option value="turn">되돌리기</option>
       </select>
     </div>
   </div>
 </template>
 
 <script>
-import { getSortGoods } from "../../api/Goods.js";
 
 export default {
+  props:{
+    goodsdata:[],
+    goodsdataOriginal:[],
+    goodsdataFinish:[],
+    infiniteBtn:Boolean,
+  },
   data() {
     return {
       // goodsOriginal:[...this.$store.state.goods.goods],
@@ -28,6 +31,11 @@ export default {
       sortType:'',
     };
   },
+
+  // {
+  //   sortgoods:['goodsdata'],
+  //   goodsOriginal:['goodsdata']
+  // },
   mounted() {
     if (window.location.pathname === "/mypage") {
       this.mypageCheck = true;
@@ -40,52 +48,49 @@ export default {
   // },
   methods: {
     async sortBy() {
-      let standard='';
-      let order='';
-      if(this.sortType=='new'){
-        standard='id';
-        order='DESC'
-      }
-      else if(this.sortType=='old'){
-        standard='id';
-        order='ASC'
-      }
-      else if(this.sortType=='priceHigh'){
-        standard='price';
-        order='DESC'
-      }
-      else{
-        standard='price';
-        order='ASC'
+      // let i=0;
+      // let standard='';
+      // let order='';
+      // let check=false
+      switch(this.sortType){
+        case 'old':{
+          this.goodsdata.sort(function(a,b){
+            return a.id-b.id;
+          })
+          break;
+        }
+        case 'priceHigh':{
+          this.goodsdata.sort(function(a,b){
+            return b.price-a.price;
+          })
+          break;
+        }
+        case 'priceLow':{
+          this.goodsdata.sort(function(a,b){
+            return a.price-b.price;
+          })
+          break;
+        }
+        case 'finish':{
+          this.goodsdata=[];
+          this.goodsdata=this.goodsdataFinish;
+        }
+        case 'turn':{
+          this.goodsdata.sort(function(a,b){
+            return b.id-a.id;
+          })
+          break;
+        }
       }
       try {
-        const response = await getSortGoods(standard,order);
-        this.$emit('pass',response.data)
-        console.log(response);
-      } catch (error) {
-        alert(error);
+          this.infiniteBtn=false;
+          this.$emit('pass',this.goodsdata)
+          this.$emit('change',this.infiniteBtn);
+          console.log(this.goodsdata);
+        } catch (error) {
+          alert(error);
       }
     },
-    // priceLow(){
-    //   this.goods.sort(function(a,b){
-    //     return a.price - b.price
-    //   });
-    //   this.$store.goods.commit('changeGoods',goods)
-    //   this.$router.go()
-    // },
-    // priceHigh(){
-    //   this.goods.sort(function(a,b){
-    //     return b.price - a.price
-    //   });
-    // },
-    // sortBack(){
-    //   this.$store.state.goods.goods = [...this.goodsOriginal];
-    // },
-    // passGoods(){
-    //   this.$store.state.goods.goods=[]
-    //   // this.$store.goods.commit('changeGoods',goods)
-    //   this.$router.go()
-    // }
   },
 };
 </script>

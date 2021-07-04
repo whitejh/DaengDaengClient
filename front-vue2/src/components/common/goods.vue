@@ -1,7 +1,7 @@
 <template>
   <v-container class="grey lighten-5">
     <!-- testData를 getTest로 변경하면 json-server 없이 화면에 띄우는 것 가능 -->
-    <Sort v-on:pass="SortGoods"></Sort>
+    <Sort :goodsdata="goodsData" :goodsdataOriginal="goodsData" :goodsdataFinish="goodsFinish" :infiniteBtn="infiniteChange" v-on:pass="SortGoods" v-on:change="infiniteChangeBtn"></Sort>
     <!-- v-on:pass="deliverGoods" -->
     <!-- v-bind:goodsData="getGoods" -->
     <div v-if="goodsData.length > 0">
@@ -16,7 +16,55 @@
           md="3"
           cols="12"
         >
-          <div class="card">
+          <div class="card" v-if="item.deal==='no'">
+            <div class="dropdown" v-if="urlInfo === '/mypage'">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              ></button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                  <a class="dropdown-item" href="#">거래완료</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">게시글 수정</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">숨기기</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">삭제</a>
+                </li>
+              </ul>
+            </div>
+            <img :src="item.path" class="card-img-top" alt="image" />
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ item.name }}
+              </h5>
+              <p class="card-text">
+                {{ item.price }}
+              </p>
+              <p class="card-text">
+                {{ item.wanted_location }}
+              </p>
+
+              <router-link to="/productdetail">
+                <div class="card-button">
+                  <button type="button" class="btn btn-primary btn-sm">
+                    상세 정보 보기
+                  </button>
+                </div>
+              </router-link>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{ item.time }}</small>
+            </div>
+          </div>
+          <div class="card" v-bind:style="mycard" v-else>
             <div class="dropdown" v-if="urlInfo === '/mypage'">
               <button
                 class="btn btn-secondary dropdown-toggle"
@@ -88,6 +136,7 @@ import { getGoodsList } from "../../api/Goods.js";
 export default {
   data: () => ({
     goodsData: [],
+    goodsFinish:[],
     page: 1,
     limit: 8,
     start: 0,
@@ -96,22 +145,30 @@ export default {
     infiniteChange:true,
     // mid:this.$route.params.mid,
     isSearch: 0,
+    mycard:{
+      opacity:0.3
+    }
   }),
   async created() {
+    let i=0;
     try {
       const response = await getGoodsList(this.limit);
-      if(this.$route.params.length==0){
-        this.goodsData = response.data;
+      this.goodsData = response.data;
+      // 거래 완료 데이터 푸쉬
+      for(i=0; i<response.data.length;i++){
+        if(response.data[i].deal=='yes'){
+          this.goodsFinish.push(response.data[i]);
+        }
       }
-      else{
-        let i=0;
+      // 카테고리 이동 시
+      if(this.$route.params.length>0){ 
         this.goodsData=[];
         for(i=0; i<response.data.length;i++){
           if(this.$route.params.big==response.data[i].big_category && this.$route.params.mid==response.data[i].mid_category){
-            this.goodsData.push(response.data[i]);
-            this.infiniteChange=false;
+              this.goodsData.push(response.data[i]);       
           }
         }
+        this.infiniteChange=false;
       }
       console.log(response);
       console.log(this.$route.params.big)
@@ -138,34 +195,38 @@ export default {
       //   },
       // };
       // if(this.$route.params.length==0){
-        getGoodsList(this.limit)
-          .then((response) => {
-            setTimeout(() => {
-              if (response.data.length > 0) {
-                this.goodsData = this.goodsData.concat(
-                  response.data.slice(this.start, this.limit)
-                );
-                $state.loaded();
-                this.limit += 8;
-                this.start += 8;
-                // 데이터를 8로 나눴을 때 8보다 작게 되면
-                if (response.length / 8 < 1) {
-                  $state.complete(); // 데이터가 없으면 로딩 끝
-                }
-              } else {
-                $state.complete();
+      getGoodsList(this.limit)
+        .then((response) => {
+          setTimeout(() => {
+            if (response.data.length > 0) {
+              this.goodsData = this.goodsData.concat(
+                response.data.slice(this.start, this.limit)
+              );
+              $state.loaded();
+              this.limit += 8;
+              this.start += 8;
+              // 데이터를 8로 나눴을 때 8보다 작게 되면
+              if (response.length / 8 < 1) {
+                $state.complete(); // 데이터가 없으면 로딩 끝
               }
-            }, 1000);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+            } else {
+              $state.complete();
+            }
+          }, 1000);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
         // }
     },
     SortGoods(sortedGoods){
       this.goodsData=sortedGoods;
-      console.log('ilove')
+      console.log('sortOk')
     },
+    infiniteChangeBtn(){
+      this.infiniteChange=false;
+    }
   },
 };
 </script>
+

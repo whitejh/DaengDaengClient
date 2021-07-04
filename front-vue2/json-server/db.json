@@ -1,5 +1,5 @@
 {
-    "page":1,
+    "page":["1"],
     "goods":[ 
         {
             "id": 1,
@@ -9,7 +9,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/02.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 1,
@@ -19,7 +20,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"2"
+            "mid_category":"2",
+            "deal":"no"
         },
         {
             "id": 1,
@@ -29,7 +31,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/03.jpg",
             "big_category":"3",
-            "mid_category":"2"
+            "mid_category":"2",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -39,7 +42,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"2",
-            "mid_category":"3"
+            "mid_category":"3",
+            "deal":"no"
         },
         {
             "id": 1,
@@ -49,7 +53,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/05.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -59,7 +64,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"2",
-            "mid_category":"5"
+            "mid_category":"5",
+            "deal":"no"
         },
         {
             "id": 1,
@@ -69,7 +75,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"2",
-            "mid_category":"6"
+            "mid_category":"6",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -79,7 +86,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"2",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -89,7 +97,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"2",
-            "mid_category":"4"
+            "mid_category":"4",
+            "deal":"yes"
         },
         {
             "id": 9,
@@ -99,7 +108,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"5"
+            "mid_category":"5",
+            "deal":"no"
         },
         {
             "id": 9,
@@ -109,7 +119,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"3",
-            "mid_category":"3"
+            "mid_category":"3",
+            "deal":"no"
         },
 
         {
@@ -120,7 +131,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 1,
@@ -130,7 +142,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 1,
@@ -140,7 +153,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -150,7 +164,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -160,7 +175,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -170,7 +186,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 9,
@@ -180,7 +197,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 9,
@@ -190,7 +208,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 9,
@@ -200,7 +219,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 9,
@@ -210,7 +230,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 9,
@@ -220,7 +241,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         },
         {
             "id": 1,
@@ -230,7 +252,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"no"
         },
         {
             "id": 9,
@@ -240,7 +263,8 @@
             "time":"1시간 전",
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"1",
-            "mid_category":"1"
+            "mid_category":"1",
+            "deal":"yes"
         }
     ]
 }
