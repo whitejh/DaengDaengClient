@@ -4,7 +4,7 @@ export default {
 		return state.auth.token !== '';
 	},
 
-	isAdmin(state){
-		return state.auth.email =="admin@naver.com";
-	}
+	isAdmin(state) {
+		return state.auth.email == 'admin@naver.com';
+	},
 };

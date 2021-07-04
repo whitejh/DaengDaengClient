@@ -28,6 +28,12 @@
 							required
 							v-model="email"
 						/>
+						<!-- valdation box -->
+						<p class="validation-text">
+							<span class="warning" v-if="!isEmailValid && email">
+								이메일을 입력해주세요.
+							</span>
+						</p>
 					</div>
 					<!-- <span class="input-group-addon"><i class="icon-mail"></i></span> -->
 				</div>
@@ -72,14 +78,14 @@
 				</button>
 			</div>
 		</form>
-	
 	</div>
 </template>
 
 <script>
 import { validateEmail } from '../utils/validation';
-import { loginUser } from '../api/index';
-import {saveAuthToCookie,saveUserToCookie} from '../utils/cookies';
+import { getUserFromCookie } from '../utils/cookies';
+// import { loginUser } from '../api/index';
+// import { saveAuthToCookie, saveUserToCookie } from '../utils/cookies';
 export default {
 	data() {
 		return {
@@ -103,11 +109,15 @@ export default {
 					password: this.password,
 				};
 				/**
-				 *  쿠키로 값을 받아 스토어에 전달하는 방식 
+				 *  쿠키로 값을 받아 스토어에 전달하는 방식
 				 */
-				await this.$store.dispatch('LOGIN',userData);
-				this.$router.push('/');
-				
+				try {
+					await this.$store.dispatch('LOGIN', userData);
+
+					this.$router.push('/');
+				} catch (error) {
+					alert('아이디 비밀번호를 확인해주세요.');
+				}
 
 				/**
 				 * regacy
@@ -115,14 +125,14 @@ export default {
 				// const { data } = await loginUser(userData);
 				// console.log(data);
 				// this.$store.commit('setToken', data.token);
-				// this.$store.commit('setEmail', this.email);
+				this.$store.commit('setEmail', getUserFromCookie());
 				// this.$router.push('/');
-				// 쿠키에 저장 
+				// 쿠키에 저장
 				// saveAuthToCookie(data.token);
 				// saveUserToCookie(this.email);
 			} catch (error) {
 				console.log(error.response.data);
-				this.logMessage = error.response.data
+				this.logMessage = error.response.data;
 			} finally {
 				//
 			}
@@ -131,4 +141,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.warning {
+	color: #ff4057;
+	margin-top: 50px;
+}
+
+.form input:valid {
+	border: 1px solid #21b314;
+}
+
+.form input:invalid {
+	border: 1px solid red;
+}
+
+.form .validation-text {
+	margin-top: -0.5rem;
+	margin-bottom: 0.5rem;
+	font-size: 1rem;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+</style>

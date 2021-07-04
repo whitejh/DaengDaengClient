@@ -2,7 +2,7 @@ const menuState = {
 	menus: [
 		{
 			big_category_id: 1,
-      		url:'/category/1',
+			url: '/category/1',
 			name: '대형견',
 			childrens: [
 				{
@@ -55,9 +55,9 @@ const menuState = {
 		{
 			big_category_id: 2,
 			name: '중형견',
-      url:'/category/2',
-      childrens: [
-        {
+			url: '/category/2',
+			childrens: [
+				{
 					mid_category_id: 1,
 					url: '/food',
 					name: '사료/간식',
@@ -107,9 +107,9 @@ const menuState = {
 		{
 			big_category_id: 3,
 			name: '소형견',
-      url:'/category/3',
-      childrens: [
-        {
+			url: '/category/3',
+			childrens: [
+				{
 					mid_category_id: 1,
 					url: '/food',
 					name: '사료/간식',

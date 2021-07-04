@@ -30,7 +30,7 @@
             href="#mobile-menu"
             data-toggle="offcanvas"></a> -->
 
-					<router-link class="site-logo" to=/>
+					<router-link class="site-logo" to="/">
 						<img
 							src="@/assets/img/header_logo.png"
 							alt="댕댕마켓"
@@ -112,7 +112,6 @@
 												<p class="user-name">
 													{{ $store.state.auth.email }}
 												</p>
-			
 											</router-link>
 											<span class="text-xs text-muted">환영합니다!</span>
 										</div>
@@ -156,8 +155,9 @@
 import SideMenu from './sidemenu.vue';
 import { mapState } from 'vuex';
 import {} from 'lodash';
+import { deleteCookie } from '../../utils/cookies';
 export default {
-// import Menus from './menus.vue';
+	// import Menus from './menus.vue';
 	computed: {
 		...mapState(['menus', 'colors', 'auth']),
 
@@ -166,9 +166,9 @@ export default {
 			return this.$store.getters.isLogin;
 		},
 
-		logoLink(){
-			return this.$store.getters.isLogin ? '/main': '/login';
-		}
+		logoLink() {
+			return this.$store.getters.isLogin ? '/main' : '/login';
+		},
 	},
 
 	data: () => ({
@@ -200,11 +200,12 @@ export default {
 		logoutUser() {
 			this.$store.commit('clearUsername');
 			this.$router.push('loginjoin');
+			deleteCookie('til_auth');
+			deleteCookie('til_user');
 		},
 	},
 	components: {
 		SideMenu,
-		
 	},
 };
 </script>
@@ -226,13 +227,11 @@ header {
 }
 .menubar {
 	padding-left: 300px;
-	padding-right:100px;
+	padding-right: 100px;
 }
 .searchmenu {
 	padding-left: 200px;
 
-
-	
 	width: 400px;
 }
 .title {
@@ -247,4 +246,3 @@ header {
 	font-size: 30px;
 }
 </style>
-

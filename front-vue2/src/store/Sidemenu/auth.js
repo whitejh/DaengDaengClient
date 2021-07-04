@@ -1,11 +1,8 @@
-
-import {getAuthFromCookie,getUserFromCookie} from '../../utils/cookies';
+import { getAuthFromCookie } from '../../utils/cookies';
 const authState = {
 	auth: {
-		email: getUserFromCookie || '',
+		email: '',
 		token: getAuthFromCookie || '',
-		
-
 	},
 };
 

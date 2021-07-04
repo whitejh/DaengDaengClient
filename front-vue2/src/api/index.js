@@ -12,21 +12,22 @@ import { setInterceptors } from './common/interceptor';
 // const instance = createInstance();
 
 const instance = axios.create({
-	baseURL:"http://localhost:3080/",
-	headers:{
-		// cors로 인해 주석 처리 
+	baseURL: 'http://localhost:3080/',
+	headers: {
+		// cors로 인해 주석 처리
 		// Authorization : store.state.auth.token,
-	}
-})
+	},
+});
 
 function loginUser(userData) {
 	// const url = 'http://localhost:3080/login';
-	return instance.post('login', userData);
+	return axios.post('http://localhost:3002/login', userData);
 }
 function registerUser(userData) {
 	// const url = 'http://localhost:3080/user';
 
-	return instance.post('user', userData);
+	// return instance.post('user', userData);
+	return axios.post('http://localhost:3002/register', userData);
 }
 export { loginUser, registerUser };
 // axios의 api 함수 구조화
@@ -34,12 +35,11 @@ export { loginUser, registerUser };
 function createInstanceWithAuth(url) {
 	const instance = axios.create({
 		// baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
-		baseURL:`http://localhost:3002/${url}`
+		baseURL: `http://localhost:3002/${url}`,
 	});
 	return setInterceptors(instance);
 }
 export const goods = createInstanceWithAuth('goods/');
-
 
 // 1. HTTP Request & Response와 관련된 기본 설정
 // const config = {

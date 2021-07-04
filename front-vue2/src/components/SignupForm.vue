@@ -15,14 +15,20 @@
 						type="email"
 						id="reg-email"
 						required
-						v-model="username"
+						v-model="email"
 					/>
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="reg-phone">휴대폰 번호</label>
-					<input class="form-control" type="text" id="reg-phone" required />
+					<input
+						class="form-control"
+						type="text"
+						id="reg-phone"
+						required
+						v-model="phone"
+					/>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -45,6 +51,7 @@
 						type="password"
 						id="reg-pass-confirm"
 						required
+						v-model="passwordConfirm"
 					/>
 				</div>
 			</div>
@@ -69,13 +76,43 @@
 						<option>중형견</option>
 						<option>소형견</option>
 					</select> -->
+
+					<!-- <div>
+					<input type="checkbox" id="coding" name="interest" value="coding">
+					<label for="coding">Coding</label>
+				</div>
+				<div>
+					<input type="checkbox" id="music" name="interest" value="music">
+					<label for="music">Music</label>
+  </div> -->
 					<form class="form-control">
 						<div class="interestbox">
-							<label> <input type="checkbox" />대형견</label>
+							<label>
+								<input
+									type="checkbox"
+									name="big_category"
+									value="대형견"
+									v-model="big_category"
+								/>대형견</label
+							>
 
-							<label> <input type="checkbox" />중형견</label>
+							<label>
+								<input
+									type="checkbox"
+									name="big_category"
+									value="중형견"
+									v-model="big_category"
+								/>중형견</label
+							>
 
-							<label> <input type="checkbox" />소형견</label>
+							<label>
+								<input
+									type="checkbox"
+									name="big_category"
+									value="소형견"
+									v-model="big_category"
+								/>소형견</label
+							>
 						</div>
 					</form>
 				</div>
@@ -96,31 +133,38 @@ import { registerUser } from '../api/index';
 export default {
 	data() {
 		return {
-			// form values
-			username: '',
+			email: '',
 			password: '',
+			big_category: [],
 			nickname: '',
-			// log
+			phone: '',
+
+			// log message
 			logMessage: '',
 		};
 	},
 	methods: {
 		async submitForm() {
-			console.log("submitform!");
+			console.log('submitform!');
 			const userData = {
-				username: this.username,
+				email: this.email,
 				password: this.password,
 				nickname: this.nickname,
+				phone: this.phone,
+				big_category: this.big_category,
 			};
 			const { data } = await registerUser(userData);
 			console.log(data);
-			this.logMessage = `${data.username}님이 가입되었습니다`;
+			this.logMessage = `${this.nickname}님이 가입되었습니다`;
 			this.initForm();
 		},
 		initForm() {
-			this.username = '';
+			this.email = '';
 			this.password = '';
 			this.nickname = '';
+			this.phone = ' ';
+			this.big_category = '';
+			this.passwordConfirm = '';
 		},
 	},
 };

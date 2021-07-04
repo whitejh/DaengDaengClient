@@ -40,7 +40,9 @@
 												</template>
 												<template v-for="children in menu.childrens">
 													<v-list-item
-														@click="movePage(menu.url,children.mid_category_id)"
+														@click="
+															movePage(menu.url, children.mid_category_id)
+														"
 														:key="children.id"
 														class="ml-2"
 														:active-class="
@@ -62,9 +64,7 @@
 											</v-list-group>
 										</template>
 										<template v-else>
-											<v-list-item
-												:key="menu.id"
-											>
+											<v-list-item :key="menu.id">
 												<v-list-item-title>{{ menu.name }}</v-list-item-title>
 											</v-list-item>
 										</template>
@@ -96,10 +96,10 @@ export default {
 		showSidebar: false,
 	}),
 	methods: {
-		movePage(cate1,cate2) {
-            let target=cate1+'/'+cate2;
-			this.$router.push({ path:target});
-			this.showSidebar=false;
+		movePage(cate1, cate2) {
+			let target = cate1 + '/' + cate2;
+			this.$router.push({ path: target });
+			this.showSidebar = false;
 		},
 		onResponsiveInverted() {
 			if (window.innerWidth < 1000) {

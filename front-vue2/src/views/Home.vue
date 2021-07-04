@@ -113,6 +113,7 @@
 
 <script>
 import Goods from '../components/common/goods.vue';
+import { getUserFromCookie } from '../utils/cookies';
 export default {
 	name: '',
 	components: {
@@ -120,6 +121,14 @@ export default {
 	},
 	data() {
 		return {};
+	},
+	created() {
+		const token = this.$store.state.auth.token;
+		console.log(token);
+		this.$store.commit('setEmail', getUserFromCookie());
+
+		// 홈페이지를 리로드하거나 쿠키를 삭제할때를 위해 다시 한번 로그아웃을 시켜줌
+		// if (typeof token == 'function') this.$store.commit('clearUsername');
 	},
 };
 </script>

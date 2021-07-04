@@ -1,10 +1,7 @@
 <template>
 	<div>
 		<Header v-if="chatcheck" />
-		<router-view :key="$route.fullPath"/>
-
-
-
+		<router-view :key="$route.fullPath" />
 
 		<Footer v-if="chatcheck" />
 	</div>
@@ -18,9 +15,6 @@ export default {
 		if (window.location.pathname === '/chat') {
 			this.chatcheck = false;
 			console.log(window.location.pathname);
-
-
-			
 		} else this.chatcheck = true;
 	},
 	data() {

@@ -14,10 +14,14 @@ function getAuthFromCookie() {
 }
 
 function getUserFromCookie() {
-	return document.cookie.replace(
-		/(?:(?:^|.*;\s*)til_user\s*=\s*([^;]*).*$)|^.*$/,
-		'$1',
-	);
+	if (document.cookie != '') {
+		return document.cookie.replace(
+			/(?:(?:^|.*;\s*)til_user\s*=\s*([^;]*).*$)|^.*$/,
+			'$1',
+		);
+	} else {
+		return '';
+	}
 }
 
 function deleteCookie(value) {
