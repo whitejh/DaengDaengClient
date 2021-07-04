@@ -14,16 +14,15 @@ const routes = [
 		path: '/trade',
 		name: 'Trade',
 		component: () => import('@/views/Trade.vue'),
+		meta:{auth:true},
 
-		beforeEnter: (to, from, next) => {
-			console.log(to, from, next);
-			if (this.$store.state.auth.username !== '') next();
-		},
 	},
 	{
 		path: '/feed',
 		name: 'Feed',
 		component: () => import('@/views/Feed.vue'),
+
+		meta:{auth:true},
 	},
 	{
 		path: '/notice',
@@ -34,6 +33,7 @@ const routes = [
 		path: '/chat',
 		name: 'Chat',
 		component: () => import('@/views/Chat.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/loginjoin',
@@ -44,32 +44,44 @@ const routes = [
 		path: '/mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/noticeadd',
 		name: 'NoticeAdd',
 		component: () => import('@/views/NoticeAdd.vue'),
+		meta:{auth:true},
 	},
 	{
-		path: '/productdetail',
+		path: '/goods/:id',
 		name: 'ProductDetail',
 		component: () => import('@/views/ProductDetail.vue'),
+		meta:{auth:true},
+	},
+	{
+		path: 'productdetail',
+		name: 'ProductDetail',
+		component: () => import('@/views/ProductDetail.vue'),
+		meta:{auth:true},
 	},
 	{
 		path: '/report',
 		name: 'Report',
 		component: () => import('@/views/Report.vue'),
+		
 	},
 	{
 		path: '/adminnotice',
 		name: 'AdminNotice',
 		component: () => import('@/views/AdminNotice.vue'),
+		meta: {admin:true,auth:true}
 	},
 
 	{
 		path: '/adminreport',
 		name: 'AdminReport',
 		component: () => import('@/views/AdminReport.vue'),
+		meta: {auth:true,admin:true}
 	},
 	{
 		path: '/adlist',
@@ -84,6 +96,10 @@ const routes = [
 	{
 		path: '*',
 		component: () => import('@/views/NotFoundPage.vue'),
+	},
+	{
+			path: '*',
+			component: () => import('@/views/NotFoundPage.vue'),
 	},
 ];
 
@@ -102,7 +118,7 @@ router.beforeEach((to, from, next) => {
 	}
 
 	// 관리자 페이지 인증 
-	if (to.meta.admin && !store.getters.isAdmin) {
+	if(to.meta.admin && !store.getters.isAdmin) {
 		console.log('관리자만 접근이 가능합니다.!');
 		alert('관리자만 접근이 가능합니다.!');
 		next('/');

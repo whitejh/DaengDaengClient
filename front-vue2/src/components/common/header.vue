@@ -38,7 +38,9 @@
 						</router-link>
 					</li>
 					<li>
-						<a href="#"><span>댕댕피드</span></a>
+						<router-link to="/feed">
+							<span>댕댕피드</span>
+						</router-link>
 					</li>
 					<li>
 						<router-link to="/notice">
@@ -96,9 +98,10 @@
 										</div>
 										<div class="user-info">
 											<router-link to="/adminnotice">
-												<h6 class="user-name">
-													{{ $store.state.auth.username }}
-												</h6>
+												<p class="user-name">
+													{{ $store.state.auth.email }}
+												</p>
+			
 											</router-link>
 											<span class="text-xs text-muted">환영합니다!</span>
 										</div>
@@ -132,6 +135,7 @@
 					</div>
 				</div>
 			</template>
+			<!-- <p>{{ $store.state.auth.email }}</p> -->
 		</header>
 		<SideMenu></SideMenu>
 	</div>
@@ -223,6 +227,9 @@ header {
 }
 .searchmenu {
 	padding-left: 200px;
+
+
+	
 	width: 400px;
 }
 .title {

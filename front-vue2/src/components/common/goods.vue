@@ -123,15 +123,26 @@
       >
         목록의 끝입니다 :)
       </div>
-    </infinite-loading>
 
-  </v-container>
+      <infinite-loading
+         v-if="infiniteChange"
+         @infinite="infiniteHandler"
+         spinner="waveDots"
+      >
+         <div
+            slot="no-more"
+            style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px"
+         >
+            목록의 끝입니다 :)
+         </div>
+      </infinite-loading>
+   </v-container>
 </template>
 
 <script>
-import Sort from "./sort.vue";
-import InfiniteLoading from "vue-infinite-loading";
-import { getGoodsList } from "../../api/Goods.js";
+import Sort from './sort.vue';
+import InfiniteLoading from 'vue-infinite-loading';
+import { getGoodsList } from '../../api/Goods.js';
 // //watchar 가 화면에 들어오면, 콜백함수를 실행하겠다
 export default {
   data: () => ({
