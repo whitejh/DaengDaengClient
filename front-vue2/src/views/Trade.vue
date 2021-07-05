@@ -85,9 +85,6 @@
 									<li><button>대형견</button></li>
 									<li><button>중형견</button></li>
 									<li><button>소형견</button></li>
-									<li><button>대형견</button></li>
-									<li><button>중형견</button></li>
-									<li><button>소형견</button></li>
 								</ul>
 							</div>
 							<div class="category-input-item">

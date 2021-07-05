@@ -58,6 +58,16 @@
         "중형견"
       ],
       "id": 6
+    },
+    {
+      "email": "a@a.com",
+      "password": "1234",
+      "nickname": "1234",
+      "phone": "1234",
+      "big_category": [
+        "대형견"
+      ],
+      "id": 7
     }
   ],
   "goods": [

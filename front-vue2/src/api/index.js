@@ -12,7 +12,7 @@ import { setInterceptors } from './common/interceptor';
 // const instance = createInstance();
 
 const instance = axios.create({
-	baseURL: 'http://localhost:3080/',
+	baseURL: 'http://localhost:8080/',
 	headers: {
 		// cors로 인해 주석 처리
 		// Authorization : store.state.auth.token,
@@ -21,15 +21,19 @@ const instance = axios.create({
 
 function loginUser(userData) {
 	// const url = 'http://localhost:3080/login';
-	return axios.post('http://localhost:3002/login', userData);
+	return axios.post('http://localhost:8080/login', userData);
 }
 function registerUser(userData) {
 	// const url = 'http://localhost:3080/user';
 
 	// return instance.post('user', userData);
-	return axios.post('http://localhost:3002/register', userData);
+	return axios.post('http://localhost:8080/users', userData);
 }
-export { loginUser, registerUser };
+
+function LocationAuth(data) {
+	return axios.post('http://localhost:8080/mypage/user', data);
+}
+export { loginUser, registerUser, LocationAuth };
 // axios의 api 함수 구조화
 
 function createInstanceWithAuth(url) {
