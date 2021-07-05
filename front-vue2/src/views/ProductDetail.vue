@@ -1,35 +1,37 @@
 // 제품 상세 페이지 입니다.
 
 <template>
-	<div id="productdetail">
+
 		<!-- Page Content-->
 		<div class="container padding-bottom-3x mb-1">
 			<div class="row">
-				<!-- Poduct Gallery-->
 				<!-- 상품 정보 관련 -->
 				<div class="col-md-6">
-					<div class="product-gallery">
-						<span class="product-badge text-danger"></span>
-						<div class="gallery-wrapper"></div>
-						<div class="product-carousel owl-carousel gallery-wrapper">
-							<div class="gallery-item" data-hash="one">
-								<a href="#" data-size="1000x667"
-									><img src="../../public/img/km/01.jpg" alt="Product"
-								/></a>
-							</div>
+					<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+						<img src="@/assets/img/shop/single/01.jpg" class="d-block w-100" alt="...">
 						</div>
-						<ul class="product-thumbnails">
-							<li class="active">
-								<!-- {{this.goods.path}} -->
-								<a href="#one"><img src="../../public/img/km/01.jpg" alt="Product"/></a>
-							</li>
-							<li>
-								<a href="#two"><img src="/img/km/02.jpg" alt="Product"/></a>
-							</li>
-							<li>
-								<a href="#three"><img src="/img/km/03.jpg" alt="Product"/></a>
-							</li>
-						</ul>
+						<div class="carousel-item">
+						<img src="@/assets/img/shop/single/02.jpg" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+						<img src="@/assets/img/shop/single/03.jpg" class="d-block w-100" alt="...">
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
 					</div>
 				</div>
 				<!-- Product Info-->
@@ -60,9 +62,7 @@
 										id="modal-1"
 										title="신고 정보"
 										v-model="modalShown"
-										@show="resetModal"
-										@hidden="resetModal"
-										@ok="handleOk"
+	
 									>
 										<form ref="form" @submit.stop.prevent="handleSubmit">
 											<textarea
@@ -406,13 +406,12 @@
 
 <script>
 import {getOneGoods} from '../api/Goods';
+import {getImage} from '../api/Image';
 export default {
 	
 	data: () => ({
 		modalShown: false,
-		goods : {
-
-		}
+		goods : []
 		
 	}),
 	methods: {
@@ -422,10 +421,15 @@ export default {
 	},
 	async created() {
 		const itemId = this.$route.params.id;
-		const  response = await getOneGoods(itemId);
-		
-		console.log(response.data);
-		this.goods = response.data;
+		try{
+			const response = await getOneGoods(itemId);	
+			const response2=await getImage(itemId);	
+			console.log(response.data);
+			this.goods = response.data;
+		}
+		catch(error){
+			alert(error)
+		}
 		
 	}
 };
@@ -437,5 +441,8 @@ export default {
 }
 .col-sm-6 {
 	margin-left: 10px;
+}
+.carousel-indicators button{
+	background-color:black;
 }
 </style>

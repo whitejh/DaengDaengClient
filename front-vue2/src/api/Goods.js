@@ -1,9 +1,5 @@
 import { goods } from './index.js';
 
-function getCategory(reqData) {
-  return goods.get(reqData);
-}
-
 function InsertGoods(goodsData) {
   return goods.post('/', goodsData);
 }
@@ -16,28 +12,18 @@ function deleteGoods(reqID) {
   return goods.delete(reqID);
 }
 
-function getGoodsOne(reqID) {
-  return goods.get(reqID);
-}
+function getOneGoods(goodsId) {
+	return goods.get(`/${goodsId}`);
+} 
 
 function getGoodsList(limit) {
   return goods.get(`/?_limit=${limit}`);
 } 
 
-function getOneGoods(goodsId) {
-  return goods.get(`/${goodsId}`);
-} 
-
-function getSortGoods(sortID,orderID){
-	return goods.get(`?_sort=${sortID}&_order=${orderID}`);
-}
-
 export{
-	getCategory,
+	getOneGoods,
 	InsertGoods,
 	updateGoods,
 	deleteGoods,
 	getGoodsList,
-	getOneGoods,
-	getSortGoods,
 };

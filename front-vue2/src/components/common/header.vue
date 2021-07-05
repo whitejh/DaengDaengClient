@@ -19,25 +19,14 @@
 			</form>
 			<div class="site-branding">
 				<div class="inner">
-					<!-- Off-Canvas Toggle (#shop-categories)-->
-					<!-- <a
-            class="offcanvas-toggle cats-toggle"
-            href="#shop-categories"
-            data-toggle="offcanvas"></a>
-          Off-Canvas Toggle (#mobile-menu)
-          <a
-            class="offcanvas-toggle menu-toggle"
-            href="#mobile-menu"
-            data-toggle="offcanvas"></a> -->
-
-					<router-link class="site-logo" to=/>
+					<div class="site-logo" @click="goHome" @focus="true">
 						<img
 							src="@/assets/img/header_logo.png"
 							alt="댕댕마켓"
 							style="width: 55px"
 						/>
 						<div class="title">댕댕마켓</div>
-					</router-link>
+					</div>
 				</div>
 			</div>
 			<!-- 메인 네비바 -->
@@ -159,13 +148,12 @@ import {} from 'lodash';
 export default {
 // import Menus from './menus.vue';
 	computed: {
-		...mapState(['menus', 'colors', 'auth']),
+		...mapState(['auth']),
 
 		// 로그인 체크
 		isUserLogin() {
 			return this.$store.getters.isLogin;
 		},
-
 		logoLink(){
 			return this.$store.getters.isLogin ? '/main': '/login';
 		}
@@ -196,6 +184,15 @@ export default {
 			const host = 'http://' + window.location.host + '/chat';
 			window.open(host, 'a', 'width=800, height=880, left=100, top=50');
 		},
+		goHome(){
+			console.log(this.$route.path)
+			if(this.$route.path=='/'){
+				this.$router.go();
+			}
+			else{
+				this.$router.push('/');
+			}
+		},
 		// 로그아웃 메소드
 		logoutUser() {
 			this.$store.commit('clearUsername');
@@ -204,7 +201,6 @@ export default {
 	},
 	components: {
 		SideMenu,
-		
 	},
 };
 </script>
@@ -212,6 +208,7 @@ export default {
 .mr-2 {
 	padding-right: 10px;
 }
+
 .sidemenu-slide {
 	/* padding: 20px 20px 20px 20px; */
 	padding-left: 20px;

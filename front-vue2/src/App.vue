@@ -26,27 +26,13 @@ export default {
 	data() {
 		return {
 			chatcheck: true,
-			loading: false,
-			post: null,
-			error: null,
 		};
-	},
-	created() {
-		this.fetchData();
-	},
-	watch: {
-		$route: 'fetchData',
 	},
 	components: {
 		Header,
 		Footer,
 	},
 	methods: {
-		fetchData() {
-			this.error = this.post = null;
-			this.loading = true;
-			// `getPost`를 데이터 가져오기 위한 유틸리티/API 래퍼로 변경합니다.
-		},
 	},
 };
 </script>
