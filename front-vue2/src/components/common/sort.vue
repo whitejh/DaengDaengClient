@@ -29,42 +29,46 @@ export default {
       // goods:this.$store.state.goods.goods,
       sortType:'',
       turnCheck:false,
+      propGoods:[],
+      propInfinite:false
     };
   },
-  mounted() {
+  computed: {
 
   },
   methods: {
     async sortBy() {
       this.turnCheck=false;
+      this.propGoods=this.goodsdata;
+      this.propInfinite=this.infiniteBtn;
       switch(this.sortType){
         case 'old':{
-          this.goodsdata.sort(function(a,b){
+          this.propGoods.sort(function(a,b){
             return a.id-b.id;
           })
           break;
         }
         case 'priceHigh':{
-          this.goodsdata.sort(function(a,b){
+          this.propGoods.sort(function(a,b){
             return b.price-a.price;
           })
           break;
         }
         case 'priceLow':{
-          this.goodsdata.sort(function(a,b){
+          this.propGoods.sort(function(a,b){
             return a.price-b.price;
           })
           break;
         }
         case 'finish':{
-          this.goodsdata=[];
-          this.goodsdata=this.goodsdataFinish;
+          this.propGoods=[];
+          this.propGoods=this.goodsdataFinish;
           break;
         }
         case 'turn':{
           const response = await getGoodsList(8);
-          this.goodsdata = response.data;
-          this.goodsdata.sort(function(a,b){
+          this.propGoods = response.data;
+          this.propGoods.sort(function(a,b){
             return b.id-a.id;
           })
           this.turnCheck=true;
@@ -72,14 +76,14 @@ export default {
         }
       }
       try {
-          this.infiniteBtn=false;
+          this.propInfinite=false;
           // 되돌릴 때는 무한스크롤 작동
           if(this.turnCheck==true){
-            this.infiniteBtn=true;
+            this.propInfinite=true;
           }
-          this.$emit('pass',this.goodsdata)
+          this.$emit('pass',this.propGoods)
           this.$emit('change',this.infiniteBtn);
-          console.log(this.goodsdata);
+          console.log(this.propGoods);
         } catch (error) {
           alert(error);
       }

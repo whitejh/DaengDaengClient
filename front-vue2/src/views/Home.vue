@@ -119,8 +119,12 @@ export default {
 	components: {
 		Goods,
 	},
+	computed:{
+	},
 	data() {
-		return {};
+		return {
+			banners:[],
+		};
 	},
 };
 </script>

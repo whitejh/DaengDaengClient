@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import state from './Sidemenu/index';
+import state from './state/index';
 import mutations from './mutations.js';
 import actions from './actions.js';
 import goods from './Goods/Goods.js'

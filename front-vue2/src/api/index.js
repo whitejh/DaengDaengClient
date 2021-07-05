@@ -39,3 +39,4 @@ function createInstanceWithAuth(url) {
 	return setInterceptors(instance);
 }
 export const goods = createInstanceWithAuth('goods');
+export const image = createInstanceWithAuth('image');

@@ -14,7 +14,7 @@ function deleteGoods(reqID) {
 
 function getOneGoods(goodsId) {
 	return goods.get(`/${goodsId}`);
-  } 
+} 
 
 function getGoodsList(limit) {
   return goods.get(`/?_limit=${limit}`);

@@ -16,7 +16,7 @@
           md="3"
           cols="12"
         >
-          <div class="card" v-if="item.deal==='no'">
+          <div class="card" v-if="item.item_status==='0'">
             <div class="dropdown" v-if="urlInfo === '/mypage'">
               <button
                 class="btn btn-secondary dropdown-toggle"
@@ -52,13 +52,11 @@
                 {{ item.wanted_location }}
               </p>
 
-              <router-link to="/productdetail">
-                <div class="card-button">
-                  <button type="button" class="btn btn-primary btn-sm">
-                    상세 정보 보기
-                  </button>
-                </div>
-              </router-link>
+              <div class="card-button">
+                <button  @click="goToDetail(item.id)"  type="button" class="btn btn-primary btn-sm">
+                          상세 정보 보기
+                </button>
+              </div>
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ item.created_at }}</small>
@@ -100,13 +98,11 @@
                 {{ item.wanted_location }}
               </p>
 
-              <router-link to="/productdetail">
                 <div class="card-button">
-                  <button type="button" class="btn btn-primary btn-sm">
-                    상세 정보 보기
+                  <button  @click="goToDetail(item.id)"  type="button" class="btn btn-primary btn-sm">
+                           상세 정보 보기
                   </button>
                 </div>
-              </router-link>
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ item.created_at }}</small>
@@ -123,18 +119,6 @@
       >
         목록의 끝입니다 :)
       </div>
-
-      <infinite-loading
-         v-if="infiniteChange"
-         @infinite="infiniteHandler"
-         spinner="waveDots"
-      >
-         <div
-            slot="no-more"
-            style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px"
-         >
-            목록의 끝입니다 :)
-         </div>
       </infinite-loading>
    </v-container>
 </template>
@@ -167,7 +151,7 @@ export default {
       this.goodsData = response.data;
       // 거래 완료 데이터 푸쉬
       for(i=0; i<response.data.length;i++){
-        if(response.data[i].deal=='yes'){
+        if(response.data[i].item_status=='1'){
           this.goodsFinish.push(response.data[i]);
         }
       }
@@ -194,12 +178,16 @@ export default {
     Sort,
   },
   methods: {
+    goToDetail(product_id){
+         this.$router.push(`/goods/${product_id}`);
+    },
     searchGoods(data) {
       this.searchData = data;
       this.isSearch = 1;
     },
     infiniteHandler($state) {
       // 인위적으로 limit 1000까지만 상품을 불러와준다.
+      let i=0
       if (this.limit<1000){
         getGoodsList(this.limit)
         .then((response) => {
@@ -208,6 +196,11 @@ export default {
               this.goodsData = this.goodsData.concat(
                 response.data.slice(this.start, this.limit)
               );
+              for(i=this.start; i<this.limit;i++){
+                if(response.data[i].item_status=='1'){
+                  this.goodsFinish.push(response.data[i]);
+                }
+              }
               $state.loaded();
               this.limit += 8;
               this.start += 8;
@@ -231,7 +224,12 @@ export default {
     },
     infiniteChangeBtn(infinite){
       this.infiniteChange=infinite;
-      console.log('infiniteOk')
+      // 만약 되돌리기가 실행되면 start,limit를 초기화한다
+      if (infinite==true){
+        this.limit=8;
+        this.start=0
+      }
+      console.log(infinite)
     }
   },
 };

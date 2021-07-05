@@ -148,7 +148,7 @@ import {} from 'lodash';
 export default {
 // import Menus from './menus.vue';
 	computed: {
-		...mapState(['menus', 'colors', 'auth']),
+		...mapState(['auth']),
 
 		// 로그인 체크
 		isUserLogin() {

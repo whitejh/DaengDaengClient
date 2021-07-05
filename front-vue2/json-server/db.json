@@ -8,8 +8,7 @@
             "gu" : "GURO", 
             "image_path" : "https://www.naver.com",
             "nickname" : "jsp",
-            "password" : "1234",
-            "deal":"no"
+            "password" : "1234"
         },
         {
             "id" : 2,
@@ -18,9 +17,7 @@
             "gu" : "YOUNGSAN", 
             "image_path" : "https://www.google.com",
             "nickname" : "test",
-            "password" : "1234",
-            "deal":"no"
-        }
+            "password" : "1234"        }
     ],
     "goods":[ 
         {
@@ -32,7 +29,7 @@
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
             "mid_category":"1",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 2,
@@ -44,7 +41,7 @@
             "description" : "귀여운 강아지 옷 팝니다. 강아지가 얼마 전에 사고를 당했는데 정리하려고 싼 값에 올립니다.",
             "big_category":"1",
             "mid_category":"2",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 3,
@@ -55,7 +52,7 @@
             "path": "../../public/../img/shop/products/03.jpg",
             "big_category":"3",
             "mid_category":"2",
-            "deal":"yes"
+            "item_status":"0"
         },
         {
             "id": 4,
@@ -66,7 +63,7 @@
             "path": "../../public/../img/shop/products/04.jpg",
             "big_category":"2",
             "mid_category":"3",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 5,
@@ -77,7 +74,7 @@
             "path": "../../public/../img/shop/products/05.jpg",
             "big_category":"1",
             "mid_category":"1",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 6,
@@ -88,7 +85,7 @@
             "path": "../../public/../img/shop/products/06.jpg",
             "big_category":"2",
             "mid_category":"5",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 7,
@@ -99,7 +96,7 @@
             "path": "../../public/../img/shop/products/07.jpg",
             "big_category":"2",
             "mid_category":"6",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 8,
@@ -110,7 +107,7 @@
             "path": "../../public/../img/shop/products/08.jpg",
             "big_category":"2",
             "mid_category":"1",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 9,
@@ -121,7 +118,7 @@
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"2",
             "mid_category":"4",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 10,
@@ -132,7 +129,7 @@
             "path": "../../public/../img/shop/products/10.jpg",
             "big_category":"1",
             "mid_category":"5",
-            "deal":"yes"
+            "item_status":"1"
         },
         {
             "id": 11,
@@ -143,7 +140,7 @@
             "path": "../../public/../img/shop/products/11.jpg",
             "big_category":"3",
             "mid_category":"3",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 12,
@@ -154,7 +151,7 @@
             "path": "../../public/../img/shop/products/12.jpg",
             "big_category":"1",
             "mid_category":"1",
-            "deal":"yes"
+            "item_status":"0"
         },
         {
             "id": 13,
@@ -165,7 +162,7 @@
             "path": "../../public/../img/shop/products/01.jpg",
             "big_category":"1",
             "mid_category":"1",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 14,
@@ -176,7 +173,7 @@
             "path": "../../public/../img/shop/products/02.jpg",
             "big_category":"1",
             "mid_category":"2",
-            "deal":"yes"
+            "item_status":"0"
         },
         {
             "id": 15,
@@ -187,7 +184,7 @@
             "path": "../../public/../img/shop/products/03.jpg",
             "big_category":"3",
             "mid_category":"2",
-            "deal":"yes"
+            "item_status":"0"
         },
         {
             "id": 16,
@@ -198,7 +195,7 @@
             "path": "../../public/../img/shop/products/04.jpg",
             "big_category":"2",
             "mid_category":"3",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 17,
@@ -209,7 +206,7 @@
             "path": "../../public/../img/shop/products/05.jpg",
             "big_category":"1",
             "mid_category":"1",
-            "deal":"yes"
+            "item_status":"1"
         },
         {
             "id": 18,
@@ -220,7 +217,7 @@
             "path": "../../public/../img/shop/products/06.jpg",
             "big_category":"2",
             "mid_category":"5",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 19,
@@ -231,7 +228,7 @@
             "path": "../../public/../img/shop/products/07.jpg",
             "big_category":"2",
             "mid_category":"6",
-            "deal":"yes"
+            "item_status":"0"
         },
         {
             "id": 20,
@@ -242,7 +239,7 @@
             "path": "../../public/../img/shop/products/08.jpg",
             "big_category":"2",
             "mid_category":"1",
-            "deal":"no"
+            "item_status":"0"
         },
         {
             "id": 21,
@@ -253,7 +250,7 @@
             "path": "../../public/../img/shop/products/09.jpg",
             "big_category":"2",
             "mid_category":"4",
-            "deal":"yes"
+            "item_status":"1"
         },
         {
             "id": 22,
@@ -264,7 +261,7 @@
             "path": "../../public/../img/shop/products/10.jpg",
             "big_category":"1",
             "mid_category":"5",
-            "deal":"no"
+            "item_status":"1"
         },
         {
             "id": 23,
@@ -275,7 +272,7 @@
             "path": "../../public/../img/shop/products/11.jpg",
             "big_category":"3",
             "mid_category":"3",
-            "deal":"yes"
+            "item_status":"0"
         },
         {
             "id": 24,
@@ -286,7 +283,7 @@
             "path": "../../public/../img/shop/products/12.jpg",
             "big_category":"1",
             "mid_category":"1",
-            "deal":"no"
+            "item_status":"0"
         }
     ],
     "notice": [ {
@@ -318,6 +315,32 @@
             "title": "신고하기 전 주의사항",
             "content": "5. 부적절한 신고는 제재를 받으실 수 있습니다.",
             "created_at": "2021-06-05 10:14" 
+        }
+    ],
+    "itemImage":[
+        {
+            "id":1,
+            "item_image_id":1,
+            "path":"@/assets/img/shop/single/01.jpg",
+            "orders":1
+        },
+        {
+            "id":1,
+            "item_image_id":2,
+            "path":"@/assets/img/shop/single/02.jpg",
+            "orders":2
+        },
+        {
+            "id":1,
+            "item_image_id":3,
+            "path":"@/assets/img/shop/single/03.jpg",
+            "orders":3
+        },
+        {
+            "id":1,
+            "item_image_id":4,
+            "path":"@/assets/img/shop/single/04.jpg",
+            "orders":1
         }
     ]
 }

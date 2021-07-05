@@ -59,12 +59,6 @@ const routes = [
 		meta:{auth:true},
 	},
 	{
-		path: 'productdetail',
-		name: 'ProductDetail',
-		component: () => import('@/views/ProductDetail.vue'),
-		meta:{auth:true},
-	},
-	{
 		path: '/report',
 		name: 'Report',
 		component: () => import('@/views/Report.vue'),
