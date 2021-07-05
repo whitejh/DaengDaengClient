@@ -37,7 +37,7 @@
             "price": 30000,
             "wanted_location": "삼성2동",
             "created_at":"2021-07-03 오후 3:57",
-       "path": "../../public/../img/shop/products/02.jpg",
+            "path": "../../public/../img/shop/products/02.jpg",
             "description" : "귀여운 강아지 옷 팝니다. 강아지가 얼마 전에 사고를 당했는데 정리하려고 싼 값에 올립니다.",
             "big_category":"1",
             "mid_category":"2"
@@ -294,4 +294,8 @@
             "created_at": "2021-06-05 10:14" 
         }
     ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> upstream/develop

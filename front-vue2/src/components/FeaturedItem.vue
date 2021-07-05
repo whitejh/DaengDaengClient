@@ -5,17 +5,18 @@
 </template>
 
 <script>
-import Goods from './common/goods.vue'
+import Goods from './common/goods_copy.vue'
 import Sort from './common/sort.vue'
 
 export default {
     data(){
         return{
-            cateName:$route.params.big+'/'+$route.params.mid
+            cateName:$router.params.big+'/'+$router.params.mid
         };
     },
     components:{
         Goods,
+        
         Sort
     },
     methods:{
