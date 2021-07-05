@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Goods from './common/goods_copy.vue'
+import Goods from './common/goods.vue'
 import Sort from './common/sort.vue'
 
 export default {
