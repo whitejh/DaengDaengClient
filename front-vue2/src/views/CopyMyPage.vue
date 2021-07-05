@@ -242,6 +242,7 @@
 						id="location"
 						role="tabpanel"
 						aria-labelledby="location-tab"
+						@click="submitLocation"
 					>
 						<div class="container padding-bottom-3x mb-1">
 							<!-- Register page -->
@@ -290,10 +291,7 @@
 									</div>
 								</div>
 
-								<button
-									class="location-confirm btn-primary"
-									@click="submitLocation"
-								>
+								<button class="location-confirm btn-primary">
 									동네 인증 확정하기
 								</button>
 								<!-- </div> -->
@@ -326,7 +324,6 @@ export default {
 			this.modalShown = !this.modalShown;
 		},
 		getLocation() {
-			console.log('getLocation!');
 			var x = document.getElementById('demo');
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(this.showPosition);

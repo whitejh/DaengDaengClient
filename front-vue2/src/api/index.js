@@ -31,7 +31,7 @@ function registerUser(userData) {
 }
 
 function LocationAuth(data) {
-	return axios.post('http://localhost:8080/mypage/user', data);
+	return axios.post('http://localhost:8080/mypage/location', data);
 }
 export { loginUser, registerUser, LocationAuth };
 // axios의 api 함수 구조화
