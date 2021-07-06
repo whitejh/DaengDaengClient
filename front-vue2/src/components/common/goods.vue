@@ -154,6 +154,7 @@ export default {
         if(response.data[i].item_status=='1'){
           this.goodsFinish.push(response.data[i]);
         }
+
       }
       // 카테고리 이동 시
       if(this.$route.params.length>0){ 
