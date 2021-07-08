@@ -38,5 +38,16 @@ function createInstanceWithAuth(url) {
 	});
 	return setInterceptors(instance);
 }
+function createInstanceWithAuth2(url) {
+	const instance = axios.create({
+		// baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
+		baseURL:`http://localhost:3003/${url}`
+	});
+	return setInterceptors(instance);
+}
 export const goods = createInstanceWithAuth('goods');
-export const image = createInstanceWithAuth('image');
+// 추후 리팩토링이 필요함(goods->items)
+export const items = createInstanceWithAuth2('items');
+export const wish= createInstanceWithAuth2('wish');
+export const blame= createInstanceWithAuth2('blame');
+
