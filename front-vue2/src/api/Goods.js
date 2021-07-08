@@ -1,8 +1,5 @@
 import { goods } from './index.js';
-
-function getCategory(reqData) {
-  return goods.get(reqData);
-}
+import { items } from './index.js';
 
 function InsertGoods(goodsData) {
   return goods.post('/', goodsData);
@@ -16,28 +13,19 @@ function deleteGoods(reqID) {
   return goods.delete(reqID);
 }
 
-function getGoodsOne(reqID) {
-  return goods.get(reqID);
-}
-
 function getGoodsList(limit) {
   return goods.get(`/?_limit=${limit}`);
 } 
 
-function getOneGoods(goodsId) {
-  return goods.get(`/${goodsId}`);
-} 
-
-function getSortGoods(sortID,orderID){
-	return goods.get(`?_sort=${sortID}&_order=${orderID}`);
+// api 문서에 detail이라는 작명에 맞게 함수명 getGoodsDetail로 설정
+function getGoodsDetail(goodsID){
+	return items.get(`/?id=${goodsID}`)
 }
 
 export{
-	getCategory,
 	InsertGoods,
 	updateGoods,
 	deleteGoods,
 	getGoodsList,
-	getOneGoods,
-	getSortGoods,
+	getGoodsDetail,
 };

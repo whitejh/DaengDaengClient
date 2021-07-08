@@ -59,12 +59,6 @@ const routes = [
 		meta:{auth:true},
 	},
 	{
-		path: 'productdetail',
-		name: 'ProductDetail',
-		component: () => import('@/views/ProductDetail.vue'),
-		meta:{auth:true},
-	},
-	{
 		path: '/report',
 		name: 'Report',
 		component: () => import('@/views/Report.vue'),
@@ -86,12 +80,16 @@ const routes = [
 	{
 		path: '/adlist',
 		name: 'AdList',
-    component: () => import('@/views/AdList.vue'),
+		component: () => import('@/views/AdList.vue'),
 	},
 	{
 		path: '/category/:big?/:mid?',
 		name: 'Category',
-    component: () => import('@/components/FeaturedItem.vue'),
+		component: () => import('@/components/FeaturedItem.vue'),
+	},
+	{
+		path: '*',
+		component: () => import('@/views/NotFoundPage.vue'),
 	},
 	{
 			path: '*',
@@ -114,7 +112,7 @@ router.beforeEach((to, from, next) => {
 	}
 
 	// 관리자 페이지 인증 
-	if(to.meta.admin && !store.getters.isAdmin){
+	if(to.meta.admin && !store.getters.isAdmin) {
 		console.log('관리자만 접근이 가능합니다.!');
 		alert('관리자만 접근이 가능합니다.!');
 		next('/');

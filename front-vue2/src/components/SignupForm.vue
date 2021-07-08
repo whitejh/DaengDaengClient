@@ -106,7 +106,7 @@ export default {
 	},
 	methods: {
 		async submitForm() {
-			console.log("submitform!");
+			console.log('submitform!');
 			const userData = {
 				username: this.username,
 				password: this.password,

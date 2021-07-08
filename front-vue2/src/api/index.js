@@ -12,12 +12,12 @@ import { setInterceptors } from './common/interceptor';
 // const instance = createInstance();
 
 const instance = axios.create({
-	baseURL:"http://localhost:3080/",
-	headers:{
-		// cors로 인해 주석 처리 
+	baseURL: 'http://localhost:3080/',
+	headers: {
+		// cors로 인해 주석 처리
 		// Authorization : store.state.auth.token,
-	}
-})
+	},
+});
 
 function loginUser(userData) {
 	// const url = 'http://localhost:3080/login';
@@ -34,44 +34,19 @@ export { loginUser, registerUser };
 function createInstanceWithAuth(url) {
 	const instance = axios.create({
 		// baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
-		baseURL:`http://localhost:3002/${url}`
+		baseURL: `http://localhost:3002/${url}`,
 	});
 	return setInterceptors(instance);
 }
-export const goods = createInstanceWithAuth('goods/');
-
-
-// 1. HTTP Request & Response와 관련된 기본 설정
-// const config = {
-// 	baseUrl: 'https://api.hnpwa.com/v0/',
-// };
-
-// 2. API 함수들을 정리
-// function fetchNewsList() {
-// 	// return axios.get(config.baseUrl + 'news/1.json');
-// 	return axios.get(`${config.baseUrl}news/1.json`); // 백틱기호 사용
-// }
-
-// function fetchAskList() {
-// 	return axios.get(`${config.baseUrl}ask/1.json`);
-// }
-
-// function fetchJobsList() {
-// 	return axios.get(`${config.baseUrl}jobs/1.json`);
-// }
-
-// function fetchUserInfo(username) {
-// 	return axios.get(`${config.baseUrl}user/${username}.json`);
-// }
-
-// function fetchCommentItem(id) {
-// 	return axios.get(`${config.baseUrl}item/${id}.json`);
-// }
-
-// export {
-// 	fetchNewsList,
-// 	fetchJobsList,
-// 	fetchAskList,
-// 	fetchUserInfo,
-// 	fetchCommentItem,
-// };
+function createInstanceWithAuth2(url) {
+	const instance = axios.create({
+		// baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
+		baseURL: `http://localhost:3003/${url}`,
+	});
+	return setInterceptors(instance);
+}
+export const goods = createInstanceWithAuth('goods');
+// 추후 리팩토링이 필요함(goods->items)
+export const items = createInstanceWithAuth2('items');
+export const wish = createInstanceWithAuth2('wish');
+export const blame = createInstanceWithAuth2('blame');
