@@ -32,6 +32,7 @@ module.exports = {
         printWidth: 80,
         bracketSpacing: true,
         arrowParens: 'avoid',
+        endOfLine: 'auto',
       },
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -41,7 +42,7 @@ module.exports = {
 // module.exports = {
 //   // 코드 검사 범위 설정
 //   env: {
-//     browser: true,
+//     browser: true,,
 //     node: true,
 //   },
 //   // 코드 검사 규칙
