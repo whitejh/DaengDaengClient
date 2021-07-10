@@ -7,8 +7,8 @@
     <div v-if="goodsData.length > 0">
       <v-row>
         <v-col
-          v-for="item in goodsData"
-          v-bind:key="item"
+          v-for="(item,index) in goodsData"
+          v-bind:key="index"
           sm="3"
           xl="3"
           lg="3"
@@ -154,8 +154,10 @@ export default {
         if(response.data[i].item_status=='1'){
           this.goodsFinish.push(response.data[i]);
         }
+
       }
       // 카테고리 이동 시
+      // api를 호출해주는 식으로 변경해준다
       if(this.$route.params.length>0){ 
         this.goodsData=[];
         for(i=0; i<response.data.length;i++){
@@ -187,6 +189,7 @@ export default {
     },
     infiniteHandler($state) {
       // 인위적으로 limit 1000까지만 상품을 불러와준다.
+      // 페이지마다 다른 api를 호출해주도록 한다
       let i=0
       if (this.limit<1000){
         getGoodsList(this.limit)

@@ -112,7 +112,7 @@
 										</router-link>
 									</li>
 									<li>
-										<a href="#" @click="showPopup"
+										<a href="#" @click="goChat"
 											><i class="far fa-comment-dots"></i> 댕댕톡</a
 										>
 									</li>
@@ -180,7 +180,7 @@ export default {
 		);
 	},
 	methods: {
-		showPopup() {
+		goChat() {
 			const host = 'http://' + window.location.host + '/chat';
 			window.open(host, 'a', 'width=800, height=880, left=100, top=50');
 		},

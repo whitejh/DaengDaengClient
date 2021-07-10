@@ -1,0 +1,120 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "bigCategory": "BIG",
+      "blameList": [
+        {
+          "blameStatus": "OK",
+          "content": "string",
+          "createdAt": "2021-07-05T13:16:32.086Z",
+          "id": 0
+        }
+      ],
+      "buyer": {
+        "id": 0
+      },
+      "chatRoomList": [
+        {
+          "id": 0,
+          "path": "string"
+        }
+      ],
+      "createdAt": "2021-07-05T13:16:32.086Z",
+      "description": "string",
+      "gu": "JONGNOGU",
+      "hit": 0,
+      "itemImageList": [
+        {
+          "id": 1,
+          "orders": 0,
+          "path": "../../public/../img/shop/products/03.jpg"
+        },
+        {
+          "id": 2,
+          "orders": 0,
+          "path": "../../public/../img/shop/products/02.jpg"
+        }
+      ],
+      "midCategory": "FEED",
+      "name": "string",
+      "price": 0,
+      "reviewGetResponseDto": {
+        "content": "string",
+        "createdAt": "2021-07-05T13:16:32.086Z",
+        "id": 0,
+        "rate": 0
+      },
+      "seller": {
+        "email": "string",
+        "gu": "JONGNOGU",
+        "id": 0,
+        "imagePath": "/img/account/user-ava-md.jpg",
+        "nickname": "string",
+        "password": "string",
+        "rate": 0,
+        "si": "SEOULSI",
+        "tel": "string"
+      },
+      "si": "SEOULSI",
+      "wishList": [
+        {
+          "id": 0,
+          "wishStatus": "OK"
+        }
+      ],
+      "nego": 1,
+      "hart": 3
+    }
+  ],
+  "wish": [
+    {
+      "id": 1,
+      "user_id": "BIG",
+      "item_id": 1
+    },
+    {
+      "id": 138,
+      "item_id": 0,
+      "user_id": 0
+    }
+  ],
+  "blame": [
+    {
+      "id": 0,
+      "blameStatus": "OK",
+      "content": "string",
+      "createdAt": "2021-07-05T13:16:32.086Z"
+    },
+    {
+      "id": 613,
+      "blameStatus": "no",
+      "content": "",
+      "createdAt": "2021-07-06T13:23:31.116Z"
+    },
+    {
+      "id": 366,
+      "blameStatus": "no",
+      "content": "",
+      "createdAt": "2021-07-06T13:35:12.349Z"
+    },
+    {
+      "id": 291,
+      "blameStatus": "no",
+      "content": "sgsgsf",
+      "createdAt": "2021-07-06T13:39:33.037Z"
+    },
+    {
+      "id": 909,
+      "blameStatus": "no",
+      "content": "",
+      "createdAt": "2021-07-06T13:40:53.849Z"
+    },
+    {
+      "id": 505,
+      "blameStatus": "no",
+      "content": "dhhreh",
+      "createdAt": "2021-07-06T13:45:42.388Z"
+    }
+  ]
+}
