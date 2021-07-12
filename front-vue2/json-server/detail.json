@@ -2,7 +2,7 @@
   "items": [
     {
       "id": 0,
-      "bigCategory": "BIG",
+      "bigCategory": "big",
       "blameList": [
         {
           "blameStatus": "OK",
@@ -21,8 +21,8 @@
         }
       ],
       "createdAt": "2021-07-05T13:16:32.086Z",
-      "description": "string",
-      "gu": "JONGNOGU",
+      "description": "상태가 좋습니다",
+      "gu": "종로",
       "hit": 0,
       "itemImageList": [
         {
@@ -36,7 +36,7 @@
           "path": "../../public/../img/shop/products/02.jpg"
         }
       ],
-      "midCategory": "FEED",
+      "midCategory": "food",
       "name": "string",
       "price": 0,
       "reviewGetResponseDto": {
@@ -47,16 +47,16 @@
       },
       "seller": {
         "email": "string",
-        "gu": "JONGNOGU",
+        "gu": "종로",
         "id": 0,
-        "imagePath": "/img/account/user-ava-md.jpg",
+        "imagePath": "../../public/../img/shop/products/02.jpg",
         "nickname": "string",
         "password": "string",
         "rate": 0,
         "si": "SEOULSI",
         "tel": "string"
       },
-      "si": "SEOULSI",
+      "si": "서울",
       "wishList": [
         {
           "id": 0,
@@ -115,6 +115,24 @@
       "blameStatus": "no",
       "content": "dhhreh",
       "createdAt": "2021-07-06T13:45:42.388Z"
+    },
+    {
+      "id": 981,
+      "blameStatus": "no",
+      "content": "신고하겠습니다",
+      "createdAt": "2021-07-10T12:03:58.584Z"
+    },
+    {
+      "id": 623,
+      "blameStatus": "no",
+      "content": "신고하겠습니다",
+      "createdAt": "2021-07-10T12:05:55.698Z"
+    }
+  ],
+  "hittable": [
+    {
+      "productId": "0",
+      "hit": "2"
     }
   ]
 }
