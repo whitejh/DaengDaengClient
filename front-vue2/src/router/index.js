@@ -14,15 +14,14 @@ const routes = [
 		path: '/trade',
 		name: 'Trade',
 		component: () => import('@/views/Trade.vue'),
-		meta:{auth:true},
-
+		meta: { auth: true },
 	},
 	{
 		path: '/feed',
 		name: 'Feed',
 		component: () => import('@/views/Feed.vue'),
 
-		meta:{auth:true},
+		meta: { auth: true },
 	},
 	{
 		path: '/notice',
@@ -33,7 +32,7 @@ const routes = [
 		path: '/chat',
 		name: 'Chat',
 		component: () => import('@/views/Chat.vue'),
-		meta:{auth:true},
+		meta: { auth: true },
 	},
 	{
 		path: '/loginjoin',
@@ -44,38 +43,37 @@ const routes = [
 		path: '/mypage',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
-		meta:{auth:true},
+		meta: { auth: true },
 	},
 	{
 		path: '/noticeadd',
 		name: 'NoticeAdd',
 		component: () => import('@/views/NoticeAdd.vue'),
-		meta:{auth:true},
+		meta: { auth: true },
 	},
 	{
 		path: '/goods/:id',
 		name: 'ProductDetail',
 		component: () => import('@/views/ProductDetail.vue'),
-		meta:{auth:true},
+		meta: { auth: true },
 	},
 	{
 		path: '/report',
 		name: 'Report',
 		component: () => import('@/views/Report.vue'),
-		
 	},
 	{
 		path: '/adminnotice',
 		name: 'AdminNotice',
 		component: () => import('@/views/AdminNotice.vue'),
-		meta: {admin:true,auth:true}
+		meta: { admin: true, auth: true },
 	},
 
 	{
 		path: '/adminreport',
 		name: 'AdminReport',
 		component: () => import('@/views/AdminReport.vue'),
-		meta: {auth:true,admin:true}
+		meta: { auth: true, admin: true },
 	},
 	{
 		path: '/adlist',
@@ -92,8 +90,8 @@ const routes = [
 		component: () => import('@/views/NotFoundPage.vue'),
 	},
 	{
-			path: '*',
-			component: () => import('@/views/NotFoundPage.vue'),
+		path: '*',
+		component: () => import('@/views/NotFoundPage.vue'),
 	},
 ];
 
@@ -111,8 +109,8 @@ router.beforeEach((to, from, next) => {
 		return; // 다음 next 호출을 막기위해
 	}
 
-	// 관리자 페이지 인증 
-	if(to.meta.admin && !store.getters.isAdmin) {
+	// 관리자 페이지 인증
+	if (to.meta.admin && !store.getters.isAdmin) {
 		console.log('관리자만 접근이 가능합니다.!');
 		alert('관리자만 접근이 가능합니다.!');
 		next('/');

@@ -1,4 +1,3 @@
-  
 <template>
 	<div id="home">
 		<!-- 배너슬라이드  -->
@@ -120,11 +119,10 @@ export default {
 	components: {
 		Goods,
 	},
-	computed:{
-	},
+	computed: {},
 	data() {
 		return {
-			banners:[],
+			banners: [],
 		};
 	},
 	created() {
