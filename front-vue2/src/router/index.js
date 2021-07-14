@@ -41,7 +41,7 @@ const routes = [
 		component: () => import('@/views/LoginJoin.vue'),
 	},
 	{
-		path: '/mypage',
+		path: '/mypage/:id',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
 		meta:{auth:true},
@@ -90,10 +90,6 @@ const routes = [
 	{
 		path: '*',
 		component: () => import('@/views/NotFoundPage.vue'),
-	},
-	{
-			path: '*',
-			component: () => import('@/views/NotFoundPage.vue'),
 	},
 ];
 

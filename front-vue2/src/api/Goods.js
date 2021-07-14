@@ -22,10 +22,24 @@ function getGoodsDetail(goodsID){
 	return items.get(`/?id=${goodsID}`)
 }
 
+// category 불러오기 위함
+function getGoodsCategory(bigName,midName){
+	return items.get(`/?bigCategory=${bigName}&midCategory=${midName}`)
+}
+
+// search를 위한 api 함수
+function getGoodsSearch(SearchStr){
+	return items.get(`/?str=${SearchStr}`)
+}
+
+
+
 export{
 	InsertGoods,
 	updateGoods,
 	deleteGoods,
 	getGoodsList,
 	getGoodsDetail,
+	getGoodsSearch,
+	getGoodsCategory,
 };
