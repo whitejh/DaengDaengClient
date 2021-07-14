@@ -13,12 +13,12 @@
 					<div class="user-info">
 						<div class="user-avatar">
 							<a class="edit-avatar" href="#"></a
-							><img src="img/account/user-ava.jpg" alt="User" />
+							><img :src="userInfo.imagePath" :alt="userInfo.imagePath" />
 						</div>
 						<div class="user-data">
-							<h4>Daniel Adams</h4>
-							<span>동네 : 용산구</span>
-							<span>관심사 : 소형견</span>
+							<h4>{{ userInfo.nickname }}</h4>
+							<span>동네 : {{ userInfo.si }}시 {{ userInfo.gu }}구</span>
+							<span>관심사 : {{ userInfo.concern }}</span>
 							<span class="afterButton">
 								<!-- 모달용 버튼 -->
 								<div class="modal-test">
@@ -114,12 +114,13 @@
 						role="tabpanel"
 						aria-labelledby="review-tab"
 					>
-						<div class="container padding-bottom-3x mb-1 ">
+						<div class="container padding-bottom-3x mb-1">
 							<!-- Messages-->
-							<div class="comment">
-								<div class="comment-author-ava">
-									<img src="img/reviews/01.jpg" alt="Avatar" />
-								</div>
+							<div
+								class="comment"
+								v-for="(item, index) in reviewInfo"
+								:key="index"
+							>
 								<div class="rating-stars padding-bottom-1 mb-1">
 									<i class="icon-star filled"></i>
 									<i class="icon-star filled"></i>
@@ -128,18 +129,17 @@
 									<i class="icon-star"></i>
 								</div>
 								<div class="comment-body">
-									상품명 : <span class="comment-text">사료</span>
+									상품명 :
+									<span class="comment-text">{{
+										item.itemMyPageResponseDto.name
+									}}</span>
 									<p class="comment-text">
-										At vero eos et accusamus et iusto odio dignissimos ducimus
-										qui blanditiis praesentium voluptatum deleniti atque
-										corrupti quos dolores et quas molestias excepturi sint
-										occaecati cupiditate non provident, similique sunt in culpa
-										qui officia deserunt mollitia animi.
+										{{ item.content }}
 									</p>
 									<div class="comment-footer">
-										<span class="comment-meta">Daniel Adams</span>
+										<span class="comment-meta">{{ item.name }}</span>
 										<span class="comment-meta">&nbsp;&nbsp;</span>
-										<span class="comment-meta">2021-5-26</span>
+										<span class="comment-meta">{{ item.createdAt }}</span>
 									</div>
 								</div>
 							</div>
@@ -148,56 +148,7 @@
 								<div class="comment-author-ava">
 									<img src="img/reviews/03.jpg" alt="Avatar" />
 								</div>
-								<div class="rating-stars padding-bottom-1 mb-1">
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star"></i>
-								</div>
-								<div class="comment-body">
-									상품명 : <span class="comment-text">장난감</span>
-									<p class="comment-text">
-										Sed ut perspiciatis unde omnis iste natus error sit
-										voluptatem accusantium doloremque laudantium, totam rem
-										aperiam, eaque ipsa quae ab illo inventore veritatis et
-										quasi architecto beatae vitae dicta sunt explicabo. Nemo
-										enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-										aut fugit, sed quia consequuntur magni dolores eos qui
-										ratione voluptatem sequi nesciunt.
-									</p>
-									<div class="comment-footer">
-										<span class="comment-meta">Jacob Hammond, Staff</span>
-										<span class="comment-meta">&nbsp;&nbsp;</span>
-										<span class="comment-meta">2021-5-26</span>
-									</div>
-								</div>
-							</div>
-							<div class="comment">
-								<div class="comment-author-ava">
-									<img src="img/reviews/03.jpg" alt="Avatar" />
-								</div>
-								<div class="rating-stars padding-bottom-1 mb-1">
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star"></i>
-								</div>
-								<div class="comment-body">
-									상품명 : <span class="comment-text">사료</span>
-									<p class="comment-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-										do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-										ullamco laboris nisi ut aliquip ex ea commodo consequat.
-									</p>
-									<div class="comment-footer">
-										<span class="comment-meta">Jacob Hammond, Staff</span>
-										<span class="comment-meta">&nbsp;&nbsp;</span>
-										<span class="comment-meta">2021-5-26</span>
-									</div>
-								</div>
+
 								<!-- Pagination-->
 								<nav class="pagination">
 									<div class="column">
@@ -269,14 +220,10 @@
 									</div>
 								</div>
 
-								<button
-									@click="getLocation"
-									class="location-confirm btn-primary"
-								>
+								<button class="location-confirm btn-primary">
 									동네 인증 확정하기
 								</button>
 								<!-- </div> -->
-								<p id="demo"></p>
 							</section>
 						</div>
 					</div>
@@ -293,39 +240,26 @@
 
 <script>
 import Goods from '@/components/common/goods.vue';
+import { getMypage } from '@/api/Mypage';
 export default {
 	data: () => ({
 		modalShown: false,
-		latlng: {
-			lat: '',
-			lng: '',
-		},
+		userInfo: {},
+		reviewInfo: {},
 	}),
+	async created() {
+		try {
+			const response = await getMypage(this.$route.params.id);
+			this.userInfo =
+				response.data.userMyPageResponseDto.userMyPageInfoResponseDto;
+			this.reviewInfo = response.data.reviewMyPageResponseDtoList;
+		} catch (error) {
+			alert(error);
+		}
+	},
 	methods: {
 		toggleModal() {
 			this.modalShown = !this.modalShown;
-		},
-
-		getLocation() {
-			var x = document.getElementById('demo');
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(this.showPosition);
-			} else {
-				x.innerHTML = 'Geolocation is not supported by this browser.';
-			}
-		},
-
-		showPosition(position) {
-			var x = document.getElementById('demo');
-			x.innerHTML =
-				'Latitude: ' +
-				position.coords.latitude +
-				'<br>Longitude: ' +
-				position.coords.longitude;
-
-			this.latlng.lat = position.coords.latitude;
-			this.Lat.lng = position.coords.longitude;
-			console.log(this.latlng);
 		},
 	},
 	components: {

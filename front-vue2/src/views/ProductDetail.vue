@@ -111,7 +111,7 @@
 									네고여부: {{this.goodsData.nego}}
 								</li>
 								<li class="list-group-item">
-									거래희망지역:{{this.goodsData.si+'시'+this.goodsData.gu+'구'}}
+									거래희망지역:{{this.goodsData.si+'시'+' '+this.goodsData.gu+'구'}}
 								</li>
 							</ul>
 						</div>
@@ -245,7 +245,9 @@ export default {
 			window.open(host, 'a', 'width=800, height=880, left=100, top=50');
 		},
 		goMypage(){
-			this.$router.push('/mypage');
+			const mypage='/mypage/'+this.$store.state.auth.id
+			// seller의 mypage에 접근해야 한다
+			this.$router.push({ path:mypage})
 		},
 		shareTwitter(){
 			let sendText = this.goodsData.name; // 전달할 텍스트
@@ -253,8 +255,8 @@ export default {
     		window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
 		},
 		shareFacebook(){
-			let sendUrl = window.location.pathname; // 전달할 URL
-			window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+			let sendUrl = window.location.href; // 전달할 URL
+			window.open("http://www.facebook.com/sharer/sharer.php?u=" + "www.naver.com" );
 		}
 	},
 	async created() {

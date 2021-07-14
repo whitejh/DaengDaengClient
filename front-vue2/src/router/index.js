@@ -40,7 +40,7 @@ const routes = [
 		component: () => import('@/views/LoginJoin.vue'),
 	},
 	{
-		path: '/mypage',
+		path: '/mypage/:id',
 		name: 'MyPage',
 		component: () => import('@/views/MyPage.vue'),
 		meta: { auth: true },
@@ -84,10 +84,6 @@ const routes = [
 		path: '/category/:big?/:mid?',
 		name: 'Category',
 		component: () => import('@/components/FeaturedItem.vue'),
-	},
-	{
-		path: '*',
-		component: () => import('@/views/NotFoundPage.vue'),
 	},
 	{
 		path: '*',

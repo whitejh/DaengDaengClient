@@ -11,15 +11,16 @@ import { setInterceptors } from './common/interceptor';
 // }
 // const instance = createInstance();
 
-// const instance = axios.create({
-// 	baseURL: 'http://localhost:3080/',
-// 	headers: {
-// 		// cors로 인해 주석 처리
-// 		// Authorization : store.state.auth.token,
-// 	},
-// });
+const instance = axios.create({
+	baseURL: 'http://localhost:8080/',
+	headers: {
+		// cors로 인해 주석 처리
+		// Authorization : store.state.auth.token,
+	},
+});
 
 function loginUser(userData) {
+	console.log(instance);
 	// const url = 'http://localhost:3080/login';
 	return axios.post('http://localhost:8080/login', userData);
 }
@@ -46,8 +47,18 @@ function createInstanceWithAuth2(url) {
 	});
 	return setInterceptors(instance);
 }
+function createInstanceWithAuth3(url) {
+	const instance = axios.create({
+		// baseURL: `${process.env.VUE_APP_API_URL}api/${url}`,
+		baseURL: `http://localhost:3004/${url}`,
+	});
+	return setInterceptors(instance);
+}
 export const goods = createInstanceWithAuth('goods');
 // 추후 리팩토링이 필요함(goods->items)
 export const items = createInstanceWithAuth2('items');
 export const wish = createInstanceWithAuth2('wish');
 export const blame = createInstanceWithAuth2('blame');
+
+// mypage 부분
+export const mypage = createInstanceWithAuth3('mypage');
