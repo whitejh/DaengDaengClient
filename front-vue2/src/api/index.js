@@ -29,6 +29,18 @@ function registerUser(userData) {
 
 	// return instance.post('user', userData);
 	return axios.post('http://localhost:8080/users', userData);
+
+	/* 토큰을 넘겨줄 서비스에 다음과 같이 요청하면됨 !!! 
+	return axios.post(
+		'http://localhost:8080/post',
+		{ action: 'dashboard' },
+		{
+			headers: {
+				Authorization: 'Bearer' + this.$store.state.auth.token,
+			},
+		},
+	);
+	*/
 }
 export { loginUser, registerUser };
 // axios의 api 함수 구조화

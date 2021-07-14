@@ -23,7 +23,7 @@
 						<input
 							id="username"
 							class="form-control"
-							type="email"
+							type="text"
 							placeholder="Email"
 							required
 							v-model="email"
@@ -69,11 +69,8 @@
 				>
 			</div>
 			<div class="text-center text-sm-right">
-				<button
-					class="btn btn-primary margin-bottom-none"
-					type="submit"
-					:disabled="!isEmailValid || !password"
-				>
+				<button class="btn btn-primary margin-bottom-none" type="submit">
+					<!-- :disabled="!isEmailValid || !password" -->
 					로그인
 				</button>
 			</div>
@@ -83,7 +80,7 @@
 
 <script>
 import { validateEmail } from '../utils/validation';
-import { getUserFromCookie } from '../utils/cookies';
+import { getUserFromCookie, getAuthFromCookie } from '../utils/cookies';
 // import { loginUser } from '../api/index';
 // import { saveAuthToCookie, saveUserToCookie } from '../utils/cookies';
 export default {
@@ -123,7 +120,7 @@ export default {
 				 */
 				// const { data } = await loginUser(userData);
 				// console.log(data);
-				// this.$store.commit('setToken', data.token);
+				this.$store.commit('setToken', getAuthFromCookie());
 				this.$store.commit('setEmail', getUserFromCookie());
 				// this.$router.push('/');
 				// 쿠키에 저장
