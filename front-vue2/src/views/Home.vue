@@ -34,7 +34,7 @@
 						src="../../public/img/banners/dog1.jpg"
 						class="d-block w-100"
 						alt="슬라이드 배너 1"
-						style="height:1300px, height: 700px"
+						style="width:700px; height: 500px;"
 					/>
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
@@ -46,7 +46,7 @@
 						src="../../public/img/banners/dog2.jpg"
 						class="d-block w-100"
 						alt="슬라이드 배너 1"
-						style="height: 700px"
+						style="width:700px; height: 500px;"
 					/>
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
@@ -58,7 +58,7 @@
 						src="../../public/img/banners/dog3.jpg"
 						class="d-block w-100"
 						alt="슬라이드 배너 1"
-						style="height: 700px"
+						style="width:700px; height: 500px;"
 					/>
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
@@ -119,8 +119,11 @@ export default {
 	components: {
 		Goods,
 	},
+	computed: {},
 	data() {
-		return {};
+		return {
+			banners: [],
+		};
 	},
 	created() {
 		const token = this.$store.state.auth.token;

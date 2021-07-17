@@ -2,67 +2,47 @@
   "page": [],
   "users": [
     {
-      "email": "jsp@naver.com",
-      "password": "$2a$10$7.2Uxv/eD2yYB.w9dTu.Deb69H.YN21mPeKmy1QRFq5zejtCJNh2K",
       "id": 1,
       "big_category": "BIG",
+      "email": "jsp@naver.com",
       "gu": "GURO",
       "image_path": "https://www.naver.com",
-      "nickname": "jsp"
+      "nickname": "jsp",
+      "password": "1234"
     },
     {
-      "email": "test@naver.com",
-      "password": "$2a$10$5h/2w3xc1uP./9Eb8nGx/OCPbTpdM6njN/Ob/aEmMZFOo7XxiYz2u",
       "id": 2,
-      "big_category": "BIG",
-      "gu": "YONGSAN",
-      "image_path": "https://www.naver.com",
-      "nickname": "test"
+      "big_category": "MID",
+      "email": "test@naver.com",
+      "gu": "YOUNGSAN",
+      "image_path": "https://www.google.com",
+      "nickname": "test",
+      "password": "1234"
     },
     {
-      "email": "admin@naver.com",
-      "password": "$2a$10$LgmcMd/TVf/aFE4J7LtqDeOQ100Sogqvq8UEe8f8HuZRNIZgLwqRy",
-      "id": 3,
-      "big_category": "BIG",
-      "gu": "YONGSAN",
-      "image_path": "https://www.naver.com",
-      "nickname": "admin"
+      "email": "jsp@naver.com",
+      "password": "1234",
+      "id": 3
     },
     {
-      "email": "a@a.com",
-      "password": "$2a$10$ubVB7/pwObXEwtYQ7qLoXuLuo868Qeu5VwkcT4.lYpvcO2uRlDKxW",
-      "nickname": "aa",
-      "phone": "0101111",
-      "big_category": [
-        "대형견"
-      ],
+      "email": "jsp@naver.com",
+      "password": "12342",
       "id": 4
     },
     {
-      "email": "fgsdfsd@a.co",
-      "password": "$2a$10$kA4jEDLOu8JgCfFAfN8yV.LteFzAW0s/WzRS8rr/tiNDVbzyqv39e",
-      "nickname": "123",
-      "phone": "1234",
-      "big_category": [
-        "대형견"
-      ],
+      "email": "jsp@naver.com",
+      "password": "1234",
       "id": 5
     },
     {
-      "email": "fgasdf@c.com",
-      "password": "$2a$10$dJIIGUwj6TsiYOV7istotucnhLGvffdWem9Af8DOytEE7I9zlCNDC",
-      "nickname": "asdfsd",
-      "phone": "1234",
-      "big_category": [
-        "대형견",
-        "중형견"
-      ],
+      "email": "jsp@naver.com",
+      "password": "1",
       "id": 6
     },
     {
-      "email": "a@a.com",
-      "password": "1234",
-      "nickname": "1234",
+      "email": "f@f.com",
+      "password": "$2a$10$BXWlCzWSLlCQCcWCgcSG7eWv58x0jNgtXT8FOhYR3LV4AmcxhXK4W",
+      "nickname": "1",
       "phone": "1234",
       "big_category": [
         "대형견"
@@ -79,7 +59,9 @@
       "created_at": "2021-07-03 오후 3:56",
       "path": "../../public/../img/shop/products/01.jpg",
       "big_category": "1",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "1",
+      "seller_id": "1"
     },
     {
       "id": 2,
@@ -90,7 +72,9 @@
       "path": "../../public/../img/shop/products/02.jpg",
       "description": "귀여운 강아지 옷 팝니다. 강아지가 얼마 전에 사고를 당했는데 정리하려고 싼 값에 올립니다.",
       "big_category": "1",
-      "mid_category": "2"
+      "mid_category": "2",
+      "item_status": "0",
+      "seller_id": "1"
     },
     {
       "id": 3,
@@ -100,7 +84,9 @@
       "created_at": "2021-07-03 오후 3:58",
       "path": "../../public/../img/shop/products/03.jpg",
       "big_category": "3",
-      "mid_category": "2"
+      "mid_category": "2",
+      "item_status": "0",
+      "seller_id": "2"
     },
     {
       "id": 4,
@@ -110,7 +96,9 @@
       "created_at": "2021-07-03 오후 3:59",
       "path": "../../public/../img/shop/products/04.jpg",
       "big_category": "2",
-      "mid_category": "3"
+      "mid_category": "3",
+      "item_status": "0",
+      "seller_id": "1"
     },
     {
       "id": 5,
@@ -120,7 +108,9 @@
       "created_at": "2021-07-03 오후 4:00",
       "path": "../../public/../img/shop/products/05.jpg",
       "big_category": "1",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "1",
+      "seller_id": "1"
     },
     {
       "id": 6,
@@ -130,7 +120,9 @@
       "created_at": "2021-07-03 오후 4:01",
       "path": "../../public/../img/shop/products/06.jpg",
       "big_category": "2",
-      "mid_category": "5"
+      "mid_category": "5",
+      "item_status": "1",
+      "seller_id": "1"
     },
     {
       "id": 7,
@@ -140,7 +132,9 @@
       "created_at": "2021-07-03 오후 4:02",
       "path": "../../public/../img/shop/products/07.jpg",
       "big_category": "2",
-      "mid_category": "6"
+      "mid_category": "6",
+      "item_status": "0",
+      "seller_id": "1"
     },
     {
       "id": 8,
@@ -150,7 +144,9 @@
       "created_at": "2021-07-03 오후 4:03",
       "path": "../../public/../img/shop/products/08.jpg",
       "big_category": "2",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "0",
+      "seller_id": "1"
     },
     {
       "id": 9,
@@ -160,7 +156,9 @@
       "created_at": "2021-07-03 오후 4:04",
       "path": "../../public/../img/shop/products/09.jpg",
       "big_category": "2",
-      "mid_category": "4"
+      "mid_category": "4",
+      "item_status": "1",
+      "seller_id": "3"
     },
     {
       "id": 10,
@@ -170,7 +168,9 @@
       "created_at": "2021-07-03 오후 4:05",
       "path": "../../public/../img/shop/products/10.jpg",
       "big_category": "1",
-      "mid_category": "5"
+      "mid_category": "5",
+      "item_status": "1",
+      "seller_id": "3"
     },
     {
       "id": 11,
@@ -180,7 +180,9 @@
       "created_at": "2021-07-03 오후 4:06",
       "path": "../../public/../img/shop/products/11.jpg",
       "big_category": "3",
-      "mid_category": "3"
+      "mid_category": "3",
+      "item_status": "0",
+      "seller_id": "3"
     },
     {
       "id": 12,
@@ -190,7 +192,9 @@
       "created_at": "2021-07-03 오후 4:07",
       "path": "../../public/../img/shop/products/12.jpg",
       "big_category": "1",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "0",
+      "seller_id": "2"
     },
     {
       "id": 13,
@@ -200,7 +204,9 @@
       "created_at": "2021-07-03 오후 4:08",
       "path": "../../public/../img/shop/products/01.jpg",
       "big_category": "1",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "1",
+      "seller_id": "1"
     },
     {
       "id": 14,
@@ -210,7 +216,9 @@
       "created_at": "2021-07-03 오후 4:09",
       "path": "../../public/../img/shop/products/02.jpg",
       "big_category": "1",
-      "mid_category": "2"
+      "mid_category": "2",
+      "item_status": "0",
+      "seller_id": "2"
     },
     {
       "id": 15,
@@ -220,7 +228,9 @@
       "created_at": "2021-07-03 오후 4:10",
       "path": "../../public/../img/shop/products/03.jpg",
       "big_category": "3",
-      "mid_category": "2"
+      "mid_category": "2",
+      "item_status": "0",
+      "seller_id": "17"
     },
     {
       "id": 16,
@@ -230,7 +240,9 @@
       "created_at": "2021-07-03 오후 4:11",
       "path": "../../public/../img/shop/products/04.jpg",
       "big_category": "2",
-      "mid_category": "3"
+      "mid_category": "3",
+      "item_status": "1",
+      "seller_id": "11"
     },
     {
       "id": 17,
@@ -240,7 +252,9 @@
       "created_at": "2021-07-03 오후 4:12",
       "path": "../../public/../img/shop/products/05.jpg",
       "big_category": "1",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "1",
+      "seller_id": "9"
     },
     {
       "id": 18,
@@ -250,7 +264,9 @@
       "created_at": "2021-07-03 오후 4:13",
       "path": "../../public/../img/shop/products/06.jpg",
       "big_category": "2",
-      "mid_category": "5"
+      "mid_category": "5",
+      "item_status": "0",
+      "seller_id": "10"
     },
     {
       "id": 19,
@@ -260,7 +276,9 @@
       "created_at": "2021-07-03 오후 4:14",
       "path": "../../public/../img/shop/products/07.jpg",
       "big_category": "2",
-      "mid_category": "6"
+      "mid_category": "6",
+      "item_status": "0",
+      "seller_id": "5"
     },
     {
       "id": 20,
@@ -270,7 +288,9 @@
       "created_at": "2021-07-03 오후 4:15",
       "path": "../../public/../img/shop/products/08.jpg",
       "big_category": "2",
-      "mid_category": "1"
+      "mid_category": "1",
+      "item_status": "0",
+      "seller_id": "8"
     },
     {
       "id": 21,
@@ -280,7 +300,9 @@
       "created_at": "2021-07-03 오후 4:16",
       "path": "../../public/../img/shop/products/09.jpg",
       "big_category": "2",
-      "mid_category": "4"
+      "mid_category": "4",
+      "item_status": "1",
+      "seller_id": "21"
     },
     {
       "id": 22,
@@ -290,7 +312,9 @@
       "created_at": "2021-07-03 오후 4:17",
       "path": "../../public/../img/shop/products/10.jpg",
       "big_category": "1",
-      "mid_category": "5"
+      "mid_category": "5",
+      "item_status": "1",
+      "seller_id": "22"
     },
     {
       "id": 23,
@@ -300,7 +324,9 @@
       "created_at": "2021-07-03 오후 4:18",
       "path": "../../public/../img/shop/products/11.jpg",
       "big_category": "3",
-      "mid_category": "3"
+      "mid_category": "3",
+      "item_status": "0",
+      "seller_id": "23"
     },
     {
       "id": 24,
@@ -310,44 +336,63 @@
       "created_at": "2021-07-03 오후 4:19",
       "path": "../../public/../img/shop/products/12.jpg",
       "big_category": "1",
-      "mid_category": "1"
-    },
-    {
-      "email": "jangsp57@@naver.com",
-      "password": "1234",
-      "id": 25
+      "mid_category": "1",
+      "item_status": "0",
+      "seller_id": "24"
     }
   ],
   "notice": [
     {
       "id": 1,
-      "title": "신고하기 전 주의사항1",
-      "content": "1. 부적절한 신고는 제재를 받으실 수 있습니다.",
+      "title": "1.물품정보가 부족하거나 허위매물이라고 판단할 경우 운영자 판단 하에 지급 대상에서 제외됩니다.",
+      "content": "상풀설명 부족, 판매가치가 없는 상품, 누가봐도 실제 거래 목적이 아닌 이벤트 경품 획득을 위해 올렸다고 판단되는 상품은 제외됩니다.",
       "created_at": "2021-06-01 10:14"
     },
     {
       "id": 2,
-      "title": "신고하기 전 주의사항2",
-      "content": "2. 부적절한 신고는 제재를 받으실 수 있습니다.",
+      "title": "2.댕댕마켓 카카오톡 상품 관련 정보 공지사항  ",
+      "content": "댕댕마켓에 가입한 휴대폰 번호의 카카오톡 계정으로만 이모티콘이 발송됩니다. 댕댕마켓에 가입한 휴대폰 번호 외의 다른 휴대폰 번호의 카카오톡 계정으로는 지급하지 않습니다.",
       "created_at": "2021-06-02 10:14"
     },
     {
       "id": 3,
-      "title": "신고하기 전 주의사항3",
-      "content": "3. 부적절한 신고는 제재를 받으실 수 있습니다.",
+      "title": "위조 상품 판매에 대한 제제 저액 강화 안내",
+      "content": "브랜드(타인)의 등록 상표를 위조 또는 모조한 상품을 판매하는 경우 , 즉시 영구 재재임을 알려드립니다.",
       "created_at": "2021-06-03 10:14"
     },
     {
       "id": 4,
-      "title": "신고하기 전 주의사항4",
-      "content": "4. 부적절한 신고는 제재를 받으실 수 있습니다.",
-      "created_at": "2021-06-04 10:14"
+      "title": "댕댕마켓 개인정보처리방침 개정 안내",
+      "content": "댕댕마켓 개인정보처리방침이 아래와 같이 변경됨에 따라 변경내역을 공지하오니 참고하여 주시기바랍니다.",
+      "created_at": "2021-07-04 10:21"
     },
     {
-      "id": 5,
-      "title": "신고하기 전 주의사항",
-      "content": "5. 부적절한 신고는 제재를 받으실 수 있습니다.",
-      "created_at": "2021-06-05 10:14"
+      "title": "새공지",
+      "content": "테스트",
+      "id": 5
+    }
+  ],
+  "image": [
+    {
+      "id": 1,
+      "item_image_id": 1,
+      "path": "@/assets/img/shop/single/01.jpg",
+      "orders": 1
+    },
+    {
+      "id": 2,
+      "path": "@/assets/img/shop/single/04.jpg",
+      "orders": 2
+    },
+    {
+      "id": 3,
+      "path": "@/assets/img/shop/single/03.jpg",
+      "orders": 2
+    },
+    {
+      "id": 4,
+      "path": "@/assets/img/shop/single/04.jpg",
+      "orders": 2
     }
   ]
 }

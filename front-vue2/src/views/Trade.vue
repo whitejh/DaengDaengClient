@@ -26,6 +26,7 @@
 								accept="image/jpg, image/jpeg, image/png"
 								multiple
 								style="opacity: 0"
+								@change="changeImage"
 							/>
 						</div>
 
@@ -393,3 +394,21 @@
 	z-index: 1;
 }
 </style>
+
+<script>
+
+export default({
+	data: () => ({
+		image:'',
+	}),
+	method:{
+		async changeImage(file){
+			this.image=file
+			// const formData=new FormData();
+			// formData.append("image",this.image)
+
+		}
+	}
+})
+</script>
+

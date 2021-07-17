@@ -3,7 +3,7 @@
 		<!-- Off-Canvas Wrapper-->
 		<div class="offcanvas-wrapper">
 			<!-- User Info-->
-			<form class="container padding-bottom-2x mb-2">
+			<div class="container padding-bottom-2x mb-2">
 				<hr class="margin-top-2x" />
 				<aside class="user-info-wrapper">
 					<div
@@ -13,12 +13,12 @@
 					<div class="user-info">
 						<div class="user-avatar">
 							<a class="edit-avatar" href="#"></a
-							><img src="img/account/user-ava.jpg" alt="User" />
+							><img :src="userInfo.imagePath" :alt="userInfo.imagePath" />
 						</div>
 						<div class="user-data">
-							<h4>Daniel Adams</h4>
-							<span>동네 : 용산구</span>
-							<span>관심사 : 소형견</span>
+							<h4>{{ userInfo.nickname }}</h4>
+							<span>동네 : {{ userInfo.si }}시 {{ userInfo.gu }}구</span>
+							<span>관심사 : {{ userInfo.concern }}</span>
 							<span class="afterButton">
 								<!-- 모달용 버튼 -->
 								<div class="modal-test">
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 				</aside>
-			</form>
+			</div>
 			<div class="container padding-bottom-1x mb-1">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item" role="presentation">
@@ -64,21 +64,7 @@
 							aria-controls="itemlist"
 							aria-selected="true"
 						>
-							구매목록
-						</button>
-					</li>
-					<li class="nav-item" role="presentation">
-						<button
-							class="nav-link"
-							id="itemlist-tab"
-							data-bs-toggle="tab"
-							data-bs-target="#itemlist"
-							type="button"
-							role="tab"
-							aria-controls="itemlist"
-							aria-selected="true"
-						>
-							판매목록
+							거래목록
 						</button>
 					</li>
 					<li class="nav-item" role="presentation">
@@ -118,7 +104,7 @@
 						role="tabpanel"
 						aria-labelledby="itemlist-tab"
 					>
-						<goods></goods>
+					<Goods></Goods>
 					</div>
 
 					<!-- 탭 2 : 상품후기 -->
@@ -128,12 +114,13 @@
 						role="tabpanel"
 						aria-labelledby="review-tab"
 					>
-						<div class="container padding-bottom-3x mb-1 ">
+						<div class="container padding-bottom-3x mb-1">
 							<!-- Messages-->
-							<div class="comment">
-								<div class="comment-author-ava">
-									<img src="img/reviews/01.jpg" alt="Avatar" />
-								</div>
+							<div
+								class="comment"
+								v-for="(item, index) in reviewInfo"
+								:key="index"
+							>
 								<div class="rating-stars padding-bottom-1 mb-1">
 									<i class="icon-star filled"></i>
 									<i class="icon-star filled"></i>
@@ -142,18 +129,17 @@
 									<i class="icon-star"></i>
 								</div>
 								<div class="comment-body">
-									상품명 : <span class="comment-text">사료</span>
+									상품명 :
+									<span class="comment-text">{{
+										item.itemMyPageResponseDto.name
+									}}</span>
 									<p class="comment-text">
-										At vero eos et accusamus et iusto odio dignissimos ducimus
-										qui blanditiis praesentium voluptatum deleniti atque
-										corrupti quos dolores et quas molestias excepturi sint
-										occaecati cupiditate non provident, similique sunt in culpa
-										qui officia deserunt mollitia animi.
+										{{ item.content }}
 									</p>
 									<div class="comment-footer">
-										<span class="comment-meta">Daniel Adams</span>
+										<span class="comment-meta">{{ item.name }}</span>
 										<span class="comment-meta">&nbsp;&nbsp;</span>
-										<span class="comment-meta">2021-5-26</span>
+										<span class="comment-meta">{{ item.createdAt }}</span>
 									</div>
 								</div>
 							</div>
@@ -162,56 +148,7 @@
 								<div class="comment-author-ava">
 									<img src="img/reviews/03.jpg" alt="Avatar" />
 								</div>
-								<div class="rating-stars padding-bottom-1 mb-1">
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star"></i>
-								</div>
-								<div class="comment-body">
-									상품명 : <span class="comment-text">장난감</span>
-									<p class="comment-text">
-										Sed ut perspiciatis unde omnis iste natus error sit
-										voluptatem accusantium doloremque laudantium, totam rem
-										aperiam, eaque ipsa quae ab illo inventore veritatis et
-										quasi architecto beatae vitae dicta sunt explicabo. Nemo
-										enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-										aut fugit, sed quia consequuntur magni dolores eos qui
-										ratione voluptatem sequi nesciunt.
-									</p>
-									<div class="comment-footer">
-										<span class="comment-meta">Jacob Hammond, Staff</span>
-										<span class="comment-meta">&nbsp;&nbsp;</span>
-										<span class="comment-meta">2021-5-26</span>
-									</div>
-								</div>
-							</div>
-							<div class="comment">
-								<div class="comment-author-ava">
-									<img src="img/reviews/03.jpg" alt="Avatar" />
-								</div>
-								<div class="rating-stars padding-bottom-1 mb-1">
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star filled"></i>
-									<i class="icon-star"></i>
-								</div>
-								<div class="comment-body">
-									상품명 : <span class="comment-text">사료</span>
-									<p class="comment-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-										do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-										ullamco laboris nisi ut aliquip ex ea commodo consequat.
-									</p>
-									<div class="comment-footer">
-										<span class="comment-meta">Jacob Hammond, Staff</span>
-										<span class="comment-meta">&nbsp;&nbsp;</span>
-										<span class="comment-meta">2021-5-26</span>
-									</div>
-								</div>
+
 								<!-- Pagination-->
 								<nav class="pagination">
 									<div class="column">
@@ -235,8 +172,6 @@
 							</div>
 						</div>
 					</div>
-
-					<!-- 동네 인증 -->
 					<div
 						class="tab-pane fade"
 						id="location"
@@ -248,14 +183,9 @@
 							<section>
 								<!-- <div class="main"> -->
 								<div class="location-check">
-									<a
-										class="btn btn-primary"
-										style="color:white;"
-										@click="getLocation"
-									>
+									<a class="btn btn-primary" href="#" style="color:white;">
 										<i class="fas fa-map-marker-alt">내 위치 확인하기</i>
 									</a>
-									<p id="demo"></p>
 								</div>
 								<div class="location-title">
 									<i class="fas fa-home">내 동네</i>
@@ -290,10 +220,7 @@
 									</div>
 								</div>
 
-								<button
-									class="location-confirm btn-primary"
-									@click="submitLocation"
-								>
+								<button class="location-confirm btn-primary">
 									동네 인증 확정하기
 								</button>
 								<!-- </div> -->
@@ -313,14 +240,37 @@
 
 <script>
 import Goods from '@/components/common/goods.vue';
-import { LocationAuth } from '../api/index';
-
+import axios from 'axios';
+// import { getMypage } from '@/api/Mypage';
+// import { putToken } from '../api/index';
 export default {
 	data: () => ({
 		modalShown: false,
-		latitude: '',
-		longitude: '',
+		
+		userInfo: {},
+		reviewInfo: [],
 	}),
+	async created() {
+		
+		// 
+		const {data} = await axios.get("http://localhost:3004/mypage");
+		console.log(data);
+		this.reviewInfo = data.reviewMyPageResponseDtoList //리뷰 정보 
+		this.userInfo = data.userMyPageResponseDto.userMyPageInfoResponseDto;
+		console.log(this.reviewInfo);
+		// 	 console.log("!!!!!!!!!!!!!!");
+		// try {
+			 
+
+		// 	const response = await getMypage(this.$route.params.id);
+		// 	console.log(response);
+		// 	this.userInfo =
+		// 		response.data.userMyPageResponseDto.userMyPageInfoResponseDto;
+		// 	this.reviewInfo = response.data.reviewMyPageResponseDtoList;
+		// } catch (error) {
+		// 	alert(error);
+		// }
+	},
 	methods: {
 		toggleModal() {
 			this.modalShown = !this.modalShown;
@@ -354,6 +304,7 @@ export default {
 	},
 	components: {
 		Goods,
+	
 	},
 };
 </script>

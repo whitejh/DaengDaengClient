@@ -1,8 +1,8 @@
 const menuState = {
 	menus: [
 		{
-			big_category_id: 1,
-			url: '/category/1',
+			big_category_id: 'big',
+			url: '/category/big',
 			name: '대형견',
 			childrens: [
 				{
@@ -53,9 +53,9 @@ const menuState = {
 			],
 		},
 		{
-			big_category_id: 2,
+			big_category_id: 'mid',
 			name: '중형견',
-			url: '/category/2',
+			url: '/category/mid',
 			childrens: [
 				{
 					mid_category_id: 1,
@@ -105,9 +105,9 @@ const menuState = {
 			],
 		},
 		{
-			big_category_id: 3,
+			big_category_id: 'small',
 			name: '소형견',
-			url: '/category/3',
+			url: '/category/small',
 			childrens: [
 				{
 					mid_category_id: 1,

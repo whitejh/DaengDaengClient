@@ -4,4 +4,7 @@ module.exports = {
 	devServer: {
 		overlay: false,
 	},
+	// env: {
+	// 	process: false,
+	// },
 };

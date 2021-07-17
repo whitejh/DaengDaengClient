@@ -1,0 +1,217 @@
+
+{
+    "mypage":{
+        "id":0,
+        "buyerItemList": [
+            {
+                "createdAt": "2021-07-10T06:45:22.103Z",
+                "gu": "용산구",
+                "hit": 0,
+                "id": 0,
+                "itemImageResponseDto": {
+                "id": 0,
+                "orders": 0,
+                "path": "../../public/../img/shop/products/10.jpg"
+                },
+                "itemStatus": "NEW",
+                "name": "강아지 목줄",
+                "negoStatus": "OK",
+                "price": 12000,
+                "si": "서울시",
+                "updatedAt": "2021-07-10T06:45:22.103Z"
+            },
+             {
+                "createdAt": "2021-07-10T06:45:22.103Z",
+                "gu": "용산구",
+                "hit": 0,
+                "id": 0,
+                "itemImageResponseDto": {
+                "id": 0,
+                "orders": 0,
+                "path": "string"
+                },
+                "itemStatus": "NEW",
+                "name": "강아지 장난감",
+                "negoStatus": "OK",
+                "price": 22000,
+                "si": "서울시",
+                "updatedAt": "2021-07-10T06:45:22.103Z"
+            }
+        ],
+        "pagination": {
+            "currentElements": 0,
+            "currentPage": 0,
+            "hasNext": true,
+            "hasPrevious": true,
+            "totalElements": 0,
+            "totalPages": 0
+        },
+        "reviewMyPageResponseDtoList": [
+        {
+            "content": "안녕하세요 아주 좋은 물건 감사합니다",
+            "createdAt": "2021-07-10T06:45:22.103Z",
+            "id": 0,
+            "name":"김영삼",
+            "itemMyPageResponseDto": {
+            "id": 0,
+            "name": "강아지 목줄"
+            },
+            "rate": 0
+        },
+        {
+            "content": "물건 너무 잘받았습니다. 다음에도 또 거래할 물건있으시면 연락주세요!",
+            "createdAt": "2021-07-10T06:45:22.103Z",
+            "id": 0,
+            "name":"홍길동",
+            "itemMyPageResponseDto": {
+            "id": 0,
+            "name": "강아지 사료"
+            },
+            "rate": 0
+        },
+        {
+            "content": "너무 친절하셔서 기분좋게 구매했습니다 감사합니다.",
+            "createdAt": "2021-07-10T06:45:22.103Z",
+            "id": 0,
+            "itemMyPageResponseDto": {
+            "id": 0,
+            "name": "강아지 장난감"
+            },
+            "rate": 0
+        }
+        ],
+        "sellerItemList": [
+        {
+            "createdAt": "2021-07-10T06:45:22.103Z",
+            "gu": "JONGNOGU",
+            "hit": 0,
+            "id": 0,
+            "itemImageResponseDto": {
+            "id": 0,
+            "name":"이태섭",
+            "orders": 0,
+            "path": "string"
+            },
+            "itemStatus": "NEW",
+            "name": "string",
+            "negoStatus": "OK",
+            "price": 0,
+            "si": "SEOULSI",
+            "updatedAt": "2021-07-10T06:45:22.103Z"
+        }
+        ],
+        "userMyPageResponseDto": {
+        "userMyPageInfoResponseDto": {
+            "concern": "대형견",
+            "email": "f@f.com ",
+            "gu": "JONGNOGU",
+            "id": 0,
+            "imagePath": "/img/km/view.png",
+            "nickname": "장성필",
+            "rate": 0,
+            "si": "서울시",
+            "tel": "string"
+        }
+    },
+    "goods": [
+    {
+      "id": 1,
+      "name": "강아지도 쓸 수 있는 집",
+      "price": 20000,
+      "wanted_location": "삼성1동",
+      "created_at": "2021-07-03 오후 3:56",
+      "path": "../../public/../img/shop/products/01.jpg",
+      "big_category": "1",
+      "mid_category": "1",
+      "item_status": "1",
+      "seller_id": "1"
+    },
+    {
+      "id": 2,
+      "name": "목줄",
+      "price": 30000,
+      "wanted_location": "삼성2동",
+      "created_at": "2021-07-03 오후 3:57",
+      "path": "../../public/../img/shop/products/02.jpg",
+      "description": "귀여운 강아지 옷 팝니다. 강아지가 얼마 전에 사고를 당했는데 정리하려고 싼 값에 올립니다.",
+      "big_category": "1",
+      "mid_category": "2",
+      "item_status": "0",
+      "seller_id": "1"
+    },
+    {
+      "id": 3,
+      "name": "급수급식대",
+      "price": 40000,
+      "wanted_location": "압구정동",
+      "created_at": "2021-07-03 오후 3:58",
+      "path": "../../public/../img/shop/products/03.jpg",
+      "big_category": "3",
+      "mid_category": "2",
+      "item_status": "0",
+      "seller_id": "2"
+    },
+    {
+      "id": 4,
+      "name": "이동장 팔아요",
+      "price": 50000,
+      "wanted_location": "신사동",
+      "created_at": "2021-07-03 오후 3:59",
+      "path": "../../public/../img/shop/products/04.jpg",
+      "big_category": "2",
+      "mid_category": "3",
+      "item_status": "0",
+      "seller_id": "1"
+    },
+    {
+      "id": 5,
+      "name": "소독 스프레이",
+      "price": 60000,
+      "wanted_location": "대치동",
+      "created_at": "2021-07-03 오후 4:00",
+      "path": "../../public/../img/shop/products/05.jpg",
+      "big_category": "1",
+      "mid_category": "1",
+      "item_status": "1",
+      "seller_id": "1"
+    },
+    {
+      "id": 6,
+      "name": "빨간 지붕 개집",
+      "price": 70000,
+      "wanted_location": "도곡1동",
+      "created_at": "2021-07-03 오후 4:01",
+      "path": "../../public/../img/shop/products/06.jpg",
+      "big_category": "2",
+      "mid_category": "5",
+      "item_status": "1",
+      "seller_id": "1"
+    },
+    {
+      "id": 7,
+      "name": "귀여운 과일 옷",
+      "price": 5000,
+      "wanted_location": "역삼1동",
+      "created_at": "2021-07-03 오후 4:02",
+      "path": "../../public/../img/shop/products/07.jpg",
+      "big_category": "2",
+      "mid_category": "6",
+      "item_status": "0",
+      "seller_id": "1"
+    },
+    {
+      "id": 8,
+      "name": "1980 청바지",
+      "price": 15800,
+      "wanted_location": "역삼2동",
+      "created_at": "2021-07-03 오후 4:03",
+      "path": "../../public/../img/shop/products/08.jpg",
+      "big_category": "2",
+      "mid_category": "1",
+      "item_status": "0",
+      "seller_id": "1"
+    }
+    ]
+    }
+       
+}
