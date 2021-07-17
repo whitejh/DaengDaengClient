@@ -8,6 +8,8 @@
 						style="width: 40px; height: 40px"
 						alt=""
 					/>댕댕톡
+
+					
 				</h1>
 			</div>
 			<div id="chat-container">

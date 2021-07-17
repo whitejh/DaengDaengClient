@@ -69,6 +69,7 @@ const routes = [
 		meta: { admin: true, auth: true },
 	},
 
+
 	{
 		path: '/adminreport',
 		name: 'AdminReport',

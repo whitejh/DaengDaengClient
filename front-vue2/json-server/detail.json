@@ -6,7 +6,7 @@
       "blameList": [
         {
           "blameStatus": "OK",
-          "content": "string",
+          "content": "0번째",
           "createdAt": "2021-07-05T13:16:32.086Z",
           "id": 0
         }
@@ -37,8 +37,8 @@
         }
       ],
       "midCategory": "food",
-      "name": "string",
-      "price": 0,
+      "name": "급수급식대",
+      "price": 13000,
       "reviewGetResponseDto": {
         "content": "string",
         "createdAt": "2021-07-05T13:16:32.086Z",
@@ -46,11 +46,11 @@
         "rate": 0
       },
       "seller": {
-        "email": "string",
+        "email": "장성필",
         "gu": "종로",
         "id": 0,
         "imagePath": "../../public/../img/shop/products/02.jpg",
-        "nickname": "string",
+        "nickname": "장성필",
         "password": "string",
         "rate": 0,
         "si": "SEOULSI",

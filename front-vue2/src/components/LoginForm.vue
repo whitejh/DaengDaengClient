@@ -96,6 +96,8 @@ export default {
 	computed: {
 		isEmailValid() {
 			return validateEmail(this.email);
+
+			
 		},
 	},
 	methods: {

@@ -104,7 +104,7 @@
 						role="tabpanel"
 						aria-labelledby="itemlist-tab"
 					>
-						<goods></goods>
+					<Goods></Goods>
 					</div>
 
 					<!-- 탭 2 : 상품후기 -->
@@ -240,22 +240,36 @@
 
 <script>
 import Goods from '@/components/common/goods.vue';
-import { getMypage } from '@/api/Mypage';
+import axios from 'axios';
+// import { getMypage } from '@/api/Mypage';
+// import { putToken } from '../api/index';
 export default {
 	data: () => ({
 		modalShown: false,
+		
 		userInfo: {},
-		reviewInfo: {},
+		reviewInfo: [],
 	}),
 	async created() {
-		try {
-			const response = await getMypage(this.$route.params.id);
-			this.userInfo =
-				response.data.userMyPageResponseDto.userMyPageInfoResponseDto;
-			this.reviewInfo = response.data.reviewMyPageResponseDtoList;
-		} catch (error) {
-			alert(error);
-		}
+		
+		// 
+		const {data} = await axios.get("http://localhost:3004/mypage");
+		console.log(data);
+		this.reviewInfo = data.reviewMyPageResponseDtoList //리뷰 정보 
+		this.userInfo = data.userMyPageResponseDto.userMyPageInfoResponseDto;
+		console.log(this.reviewInfo);
+		// 	 console.log("!!!!!!!!!!!!!!");
+		// try {
+			 
+
+		// 	const response = await getMypage(this.$route.params.id);
+		// 	console.log(response);
+		// 	this.userInfo =
+		// 		response.data.userMyPageResponseDto.userMyPageInfoResponseDto;
+		// 	this.reviewInfo = response.data.reviewMyPageResponseDtoList;
+		// } catch (error) {
+		// 	alert(error);
+		// }
 	},
 	methods: {
 		toggleModal() {
@@ -264,6 +278,7 @@ export default {
 	},
 	components: {
 		Goods,
+	
 	},
 };
 </script>
